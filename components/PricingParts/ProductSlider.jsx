@@ -15,9 +15,6 @@ import { usePricing } from "@/utils/PricingContext";
 import perfume from '@/public/assets/perfumeCollect.png'
 import blue from '@/public/assets/blue.png'
 import brown from '@/public/assets/brown.png'
-import videoDark from '@/public/assets/dark-video.png'
-import prev from '@/public/assets/prev.svg'
-import next from '@/public/assets/next.svg'
 import addSet from '@/public/assets/addSet.svg'
 const ProductSlider = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -32,12 +29,6 @@ const ProductSlider = () => {
       setDropdownOpen2(!dropdownOpen2);
     };
 
-   
-  
-  
-    
-  
-  
     const handleButtonClick = (button) => {
         setSelectedButton(button);
       };

@@ -137,29 +137,7 @@ let discountedPrice = '';
       root.style.setProperty('--swiper-button-color', '#171717');
     }
   }, [isDarkMode]);
-  // const [scrollY, setScrollY] = useState(0);
-  // const [show,setShow ] = useState(false);
-  
-  // const onScroll = useCallback(event => {
-  //   const { pageYOffset, scrollY } = window;
-  //   console.log("yOffset", pageYOffset, "scrollY", scrollY);
-  //   setScrollY(window.pageYOffset);
-  //   if (scrollY > 6300) {
-  //     setShow(true);
-  //   }
-  //   if (scrollY < 6300) {
-  //     setShow(false);
-  //   }
-  // }, []);
-  
-  // useEffect(() => {
-  //   //add eventlistener to window
-  //   window.addEventListener("scroll", onScroll, { passive: true });
-  //   // remove event on unmount to prevent a memory leak with the cleanup
-  //   return () => {
-  //      window.removeEventListener("scroll", onScroll, { passive: true });
-  //     }
-  //   }, []);
+
   return (
                    <>
               {
@@ -168,11 +146,11 @@ let discountedPrice = '';
                   data.map(({ name, rate, discount, shipping, includes, firstPoint, firstPoint50, lastPoint, spray, rate50,discount50, trend, trendName }, index) => (
                     <div onClick={() => handleOptionPlanChange(name, index)} className="lg:block hidden">
                       
-                    <div key={index} className={`flex flex-col items-start px-5 py-[30px] ${trend ? 'rounded-t-[var(--md,8px)] ' : 'rounded-[var(--md,8px)] '} border   border-solid  ${selectedPlan === name ? `${isDarkMode ? 'bg-white border-white' : 'border-white bg-primary'}` : `${isDarkMode ? 'bg-[#454547] border-white' : ' bg-white border-[color:var(--black,#171717)]'}`} `}>
+                    <div key={index} className={`flex 2xl:w-[450px] flex-col items-start px-5 py-[30px] ${trend ? 'rounded-t-[var(--md,8px)] ' : 'rounded-[var(--md,8px)] '} border   border-solid  ${selectedPlan === name ? `${isDarkMode ? 'bg-white border-white' : 'border-white bg-primary'}` : `${isDarkMode ? 'bg-[#454547] border-white' : ' bg-white border-[color:var(--black,#171717)]'}`} `}>
                       <div className="flex items-center gap-5 lg:w-full">
-                        <h6 className={` xxl:text-[38px] 2xl:w-auto lg:w-[60%] 2xl:text-[30px] lg:text-[26px] not-italic font-semibold leading-[normal] ${selectedPlan === name ? `${isDarkMode ? ' text-primary' : 'text-white'}` : `${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}`}>{name}</h6>
+                        <h6 className={` xxl:text-[38px] 2xl:w-auto  lg:w-[60%] 2xl:text-[30px] lg:text-[26px] not-italic font-semibold leading-[normal] ${selectedPlan === name ? `${isDarkMode ? ' text-primary' : 'text-white'}` : `${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}`}>{name}</h6>
                         {/* Select  */}
-                        <div className="relative 2xl:w-auto lg:w-[5%]" ref={dropdownRefs.current[index]}>
+                        <div className="relative 2xl:w-[10%] lg:w-[5%]" ref={dropdownRefs.current[index]}>
                           <span className="rounded-md shadow-sm">
                             <button
                               onClick={() => toggleDropdown(index)}
@@ -214,7 +192,7 @@ let discountedPrice = '';
                           )}
                         </div>
                         {/* CheckMark */}
-                        <div className="2xl:ml-[70px] lg:ml-[80px] 2xl:w-auto lg:w-[20%]">
+                        <div className="2xl:ml-auto lg:ml-[80px] 2xl:w-auto lg:w-[20%]">
                             
                             {
                               isDarkMode ? 

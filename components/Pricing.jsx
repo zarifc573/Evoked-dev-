@@ -96,18 +96,34 @@ function getInitialDeviceSize() {
     return 4500;
   } else if (innerWidth <= 1024) { // Large tablet
     return 4830;
-  }else if (innerWidth <= 1424) { // Large tablet
+  }
+  else if (innerWidth <= 1224) { // Large Laptop or desktop
+    return 4850;
+  }
+  else if (innerWidth <= 1324) { // Large Laptop or desktop
+    return 5050;
+  }
+  else if (innerWidth <= 1424) { // Large Laptop or desktop
+    return 5450;
+  }
+  else if (innerWidth <= 1524) { // Large Laptop or desktop
     return 5550;
   }
+  else if (innerWidth <= 1624) { // Large Laptop or desktop
+    return 5650;
+  }
+  else if (innerWidth <= 1724) { // Large Laptop or desktop
+    return 5750;
+  }
    else { // PC or larger devices
-    return 6300;
+    return 6100;
   }
 }
 
 
 
   return (
-    <section>
+    <section id="Pricing">
       <div className={`${isDarkMode ? 'bg-primary' : 'bg-white'}`}>
       <div
         className={`flex justify-between lg:pt-[100px] pt-[80px] ${

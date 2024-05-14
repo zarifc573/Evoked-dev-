@@ -1,29 +1,21 @@
 "use client"
 
-import { Add, Minus } from '@/utils/AddMinus';
 import { useDarkMode } from '@/utils/DarkModeContext';
 import React, { useState } from 'react'
 import { Collapse } from 'react-collapse';
-import { CiSquarePlus, CiSquareMinus } from "react-icons/ci";
-import footerLogo from '@/public/assets/footerIcon.svg'
-import whiteLogo from '@/public/assets/whiteLogo.svg'
 import lightMinus from '@/public/assets/lightMinus.svg'
 import lightPlus from '@/public/assets/lightPlus.svg'
 import darkMinus from '@/public/assets/darkMinus.svg'
 import darkPlus from '@/public/assets/darkPlus.svg'
-import dark from '@/public/assets/darkmode.png'
-import light from '@/public/assets/lightmode.png'
 import Image from 'next/image';
 const AccordionItem = ({open, toggle, title, desc}) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <button onClick={toggle} className={`lg:flex flex md:inline-flex mb-[30px] md:w-[70%] lg:w-[690px] w-full flex-col items-start md:items-center justify-center gap-x-[15px] mx-auto lg:p-[20px]  py-[15px] px-[20px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#fff)] bg-[#28282AB2]' : 'bg-white border-[color:var(--black,#171717)]'}`}>
+    <button onClick={toggle} className={`lg:flex flex md:inline-flex mb-[30px] md:w-[70%] lg:w-[690px] w-full flex-col items-start md:items-center text-start justify-start gap-x-[15px] mx-auto lg:p-[20px]  py-[15px] px-[20px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#fff)] bg-[#28282AB2]' : 'bg-white border-[color:var(--black,#171717)]'}`}>
       <div className="flex flex-col">
       <div  className={`flex justify-center gap-x-[44px] items-center cursor-pointer`}>
         <p className={` fontFeature lg:text-[22px] text-start text-[16px] not-italic font-medium leading-[120%] lg:leading-7 ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>{title}</p>
         <div className="">
-            {/* {open ? <CiSquareMinus className='text-[36px] text-[#171717]' /> : <CiSquarePlus className='text-[36px] text-[#171717]' />} */}
-            {/* {open ?  <Minus color={isDarkMode ? 'white': '#171717'} /> : <Add color={isDarkMode ? 'white': '#171717'}/> } */}
             {
               open ? isDarkMode ? <Image className='lg:w-auto lg:h-auto h-[28px] w-[60px]' src={darkMinus} alt='Minus'/> : <Image className='lg:w-auto lg:h-auto h-[28px] w-[60px]' src={lightMinus} alt='Minus'/>  : isDarkMode ? <Image className='lg:w-auto lg:h-auto h-[28px] w-[60px]' src={darkPlus} alt='Plus'/> : <Image className='lg:w-auto lg:h-auto h-[28px] w-[60px]' src={lightPlus} alt='Minus'/>
             }
@@ -38,8 +30,7 @@ const AccordionItem = ({open, toggle, title, desc}) => {
       
       </div>
       <Collapse isOpened={open}>
-        
-        <div className={`mt-[15px] text-start md:w-[70%] lg:w-[576.052px] lg:text-[22px] text-[12px] not-italic font-light leading-7 fontFeature ${isDarkMode ? 'text-[#FFFFFFB2]' : 'text-[color:var(--brand-70,rgba(40,40,42,0.70))]'}`}>{desc}</div>
+        <div className={`mt-[15px] text-start md:w-[70%] lg:w-auto 2xl:text-[22px] lg:text-[16px] text-[12px] not-italic font-light leading-7 fontFeature ${isDarkMode ? 'text-[#FFFFFFB2]' : 'text-[color:var(--brand-70,rgba(40,40,42,0.70))]'}`}>{desc}</div>
       </Collapse>
 
 
@@ -64,7 +55,7 @@ const Accordion = () => {
         {title:'What is Webflow and why is it the best website builder?', desc:'Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.'},
     ]
   return (
-    <section className={`lg:pt-[80px] lg:pb-[100px] pb-[40px]  ${isDarkMode ? 'bg-[#171717]' : 'bg-white'}`}>
+    <section className={`lg:pt-[100px] lg:pb-[100px] pt-[80px] pb-[40px]  ${isDarkMode ? 'bg-[#171717]' : 'bg-white'}`}>
       <div className="lg:max-w-container w-[90%] mx-auto">
         <div className="pb-[50px] lg:block md:flex md:flex-col justify-center items-center">
 

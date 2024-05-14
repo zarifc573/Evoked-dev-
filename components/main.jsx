@@ -19,7 +19,7 @@ const Main = () => {
     <div>
       <DarkModeProvider>
         {/* <BodyComponent/> */}
-          <Navbar />
+          <Navbar name='TRY DISCOVERY SET' link='/discovery-kit'/>
         <Hero />
         <Carousel />
         <EvokedBrand />

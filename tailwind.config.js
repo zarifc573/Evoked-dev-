@@ -20,7 +20,8 @@ module.exports = {
       },
       backgroundImage: {
         'evoked': 'url(../public/assets/evoked.png)',
-        'hero': 'url(../public/assets/bannerMobile.png)'
+        'hero': 'url(../public/assets/bannerMobile.png)',
+        'banner': 'url(../public/assets/hero.svg)'
       },
       fontFamily:{
         primary: ['var(--font-josefin)'],

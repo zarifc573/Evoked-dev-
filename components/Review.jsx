@@ -2,19 +2,14 @@
 
 import { useDarkMode } from "@/utils/DarkModeContext";
 import '@/app/globals.css'
-import useEmblaCarousel from 'embla-carousel-react'
 import transform from '@/public/assets/bottleReview.png'
-import star from '@/public/assets/blackStar.svg'
 import Image from 'next/image';
-import { Love2, Love3 } from "@/utils/Love";
 import { Star1, ThreeDot } from "@/utils/Helpers";
 import Star from "@/utils/Star";
-import { useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-import '@/app/globals.css'
 const Review = () => {
   
   const { isDarkMode, toggleDarkMode } = useDarkMode();

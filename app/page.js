@@ -1,10 +1,11 @@
-import Main from "@/components/main";
+
+import HomePage from '@/components/Home/Home';
 import './globals.css'
 
 export default function Home() {
   return (
     <div>
-      <Main/>
+      <HomePage/>
     </div>
   );
 }
