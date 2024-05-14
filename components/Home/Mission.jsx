@@ -43,7 +43,7 @@ const Mission = () => {
             </div>
             </div>
 
-            <div className="flex lg:flex-row flex-col items-center mt-[50px] justify-center lg:gap-[80px] gap-[30px] lg:pt-[100px]">
+            <div className="flex flex-col-reverse lg:flex-row  items-center mt-[50px] justify-center lg:gap-[80px] gap-[30px] lg:pt-[100px]">
             <div className=" 2xl:w-[50%] lg:w-[50%] h-full w-full lg:h-[216px] rounded-lg flex-col justify-center lg:justify-start items-center lg:gap-[50px] gap-[30px] inline-flex">
     <div className="flex-col justify-center lg:justify-start items-start lg:gap-5 flex">
         <div className={`text-center ${isDarkMode ? 'text-white' : 'text-zinc-800'} lg:text-[38px] text-[22px] font-bold`}>But wait, there’s more…</div>
@@ -62,7 +62,7 @@ const Mission = () => {
                   </button>
                 <p className={`text-center ${isDarkMode ? 'text-white' : 'text-zinc-800'} text-[12px] lg:text-[12px] 2xl:text-base font-normal  leading-tight`}>100% sustainably sourced <br/>ingredients and packaging.</p>
             </div>
-            <div className="flex-col justify-center lg:justify-start items-center gap-[30px] inline-flex">
+            <div className="flex-col  justify-center lg:justify-start items-center gap-[30px] inline-flex">
             <button className={`w-[60px] h-[57.33px]   justify-center items-center gap-2.5 inline-flex  p-2.5 border-solid rounded-[var(--md,8px)] border  ${isDarkMode ? 'border-[color:var(--black,#fff)]  shadow-[4px_4px_0px_0px_#fff] bg-[#171717]' : 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#171717] bg-white  border-neutral-900'}`}>
                       <Perfume className={`2xl:h-auto 2xl:w-auto h-[25px] w-[25px]`} color={isDarkMode ? '#FFFFFFCC' : '#28282A'}/>
                   </button>

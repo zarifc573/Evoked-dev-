@@ -10,9 +10,9 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Links } from "../../utils/data";
 import { useGlobal } from "../../utils/globalContext";
-const BestSellerSlider = ({ handleAddToSet, handleIncrement, handleDecrement, handleIncrementData }) => {
+const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const { buttonStates, setButtonStates } = useGlobal();
+  const { buttonStates, setButtonStates, quantities, setQuantities, clicked, setClicked } = useGlobal();
   const [dropdownStates, setDropdownStates] = useState(
     Array(Links.length).fill({ ingredients: false, notes: false })
   );
@@ -28,42 +28,18 @@ const BestSellerSlider = ({ handleAddToSet, handleIncrement, handleDecrement, ha
     });
   };
   
-  const [quantities, setQuantities] = useState(Array(Links.length).fill(0));
 
   // Function to handle adding an item to the set
- const handleAddToSetClick = (index) => {
-    if (quantities[index] === 0) {
+  const handleAddToSetClick = (index) => {
+
+
       handleAddToSet(index);
-      setQuantities((prevQuantities) => {
-        const newQuantities = [...prevQuantities];
-        // Set quantity to 1 instead of incrementing
-        newQuantities[index] = 1;
-        return newQuantities;
-      });
-    } else {
-      // Display a message indicating that the item is already added to the set
-      alert("Item is already added to the set.");
-    }
   };
-
-  // Function to handle incrementing the quantity for an item
+ 
   const handleIncrementChild = (index) => {
-    const itemData = {
-      index: index,
-      quantity: quantities[index],
-      // item: bundleBox[index],
-    };
 
-    // Pass the item data to the parent component
-    handleIncrementData(itemData);
-
-    // Increment the quantity of the item
-    setQuantities((prevQuantities) => {
-      const newQuantities = [...prevQuantities];
-      newQuantities[index] += 1;
-      return newQuantities;
-    });
-    handleIncrement()
+   
+    handleIncrement(index)
   };
 
   // Function to handle decrementing the quantity for an item
@@ -78,6 +54,7 @@ const BestSellerSlider = ({ handleAddToSet, handleIncrement, handleDecrement, ha
     });
     handleDecrement(index); // Pass the index to the handleDecrement function
   };
+
 
   return (
     <div>

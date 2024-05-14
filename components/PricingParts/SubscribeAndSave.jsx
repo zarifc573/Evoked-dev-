@@ -21,36 +21,10 @@ import { usePricing } from "@/utils/PricingContext";
 const SubscribeAndSave = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     const { show1, setShow1, selectedButton, setSelectedButton, selectedPlan, setSelectedPlan,selectedOptions, setSelectedOptions } = usePricing();
-    const [selectedButtonDropdown, setSelectedButtonDropdown] = useState(null);
-  
-    const handleButtonClick = (button) => {
-      setSelectedButton(button);
-    };
-    const handleClick = (show) => {
-      setShow1(show);
-      
-    };
-    const Links = [
-      {link:perfume , link2:  blue , link3: brown},
-      {link:perfume , link2:  blue , link3: brown},
-      {link:perfume , link2:  blue , link3: brown},
-      {link:perfume , link2:  blue , link3: brown},
-      {link:perfume, link2:  blue , link3: brown},
-      {link:perfume, link2:  blue , link3: brown},
-      {link:perfume, link2:  blue , link3: brown},
-      
-    ]
-  
 
     const [dropdownOpen1, setDropdownOpen1] = useState(false);
     const [dropdownOpen2, setDropdownOpen2] = useState(false);
-    const toggleDropdown1 = () => {
-      setDropdownOpen1(!dropdownOpen1);
-    };
-    
-    const toggleDropdown2 = () => {
-      setDropdownOpen2(!dropdownOpen2);
-    };
+
     const [selectedTrend, setSelectedTrend] = useState(true);
     const data = [
       { name:'1 Perfume', rate:'£40/2 months', rate50:'£20/2 months', shipping:'Free shipping & returns. ', includes:'What’s included:', firstPoint:'1 x 100ml perfume (lasts 2 months)', firstPoint50:'1 x 50ml perfume (lasts 2 months)', lastPoint:'1 x 5ml sample (free compliment)',spray:'£0.04 per spray' },

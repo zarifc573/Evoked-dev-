@@ -9,9 +9,10 @@ export const GlobalProvider = ({ children }) => {
 
     const [buttonStates, setButtonStates] = useState(Array(Links.length).fill(false));
     const [selectedItems, setSelectedItems] = useState(Array(Links.length).fill(null));
-    const [quantities, setQuantities] = useState(Array(Links.length).fill(0));
+    const [quantities, setQuantities] = useState({});
+    const [clicked, setClicked] = useState(false)
   return (
-    <GlobalContext.Provider value={{buttonStates, setButtonStates,selectedItems, setSelectedItems,quantities, setQuantities}}>
+    <GlobalContext.Provider value={{buttonStates, setButtonStates,selectedItems, setSelectedItems,quantities, setQuantities, clicked, setClicked}}>
       {children}
     </GlobalContext.Provider>
   );
