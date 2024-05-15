@@ -12,13 +12,11 @@ import Review from './Review'
 import ThreeMore from './ThreeMore'
 import Footer from './Footer'
 import { PricingProvider } from '@/utils/PricingContext'
-// import BodyComponent from '@/utils/BodyComponent'
 
 const Main = () => {
   return (
     <div>
       <DarkModeProvider>
-        {/* <BodyComponent/> */}
           <Navbar name='TRY DISCOVERY SET' link='/discovery-kit'/>
         <Hero />
         <Carousel />

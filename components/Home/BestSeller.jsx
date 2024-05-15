@@ -6,7 +6,6 @@ import { useGlobal } from '@/utils/globalContext';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import BestSellerSlider from './BestSellerSlider';
-import CheckMart from '@/utils/CheckMart';
 
 const BestSeller = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -89,6 +88,7 @@ const BestSeller = () => {
       
         calculatePrices();
       }, [button, quantities]);
+
       const handleAddToSet = (index) => {
         setClicked(true);
         setQuantities((prevQuantities) => {
@@ -155,9 +155,6 @@ const handleRemoveItem = (index) => {
 };
 
 
-console.log(actualPrice)
-console.log(totalPrice)
-console.log(quantities.length)
   return (
     <section className={isDarkMode ? 'bg-primary' : 'bg-white'}>
         <div className="lg:w-[95%] w-[90%] mx-auto pt-[100px]">
@@ -170,6 +167,7 @@ console.log(quantities.length)
         <button className={`${isDarkMode ? 'text-white' : 'text-zinc-800 '}  2xl:text-[22px] lg:text-[18px] text-[12px] font-semibold underline lg:leading-[33px]`}>View Collection 1</button>
     </div>
 </div>
+{/* SLider Component */}
         <BestSellerSlider handleAddToSet={handleAddToSet} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
      
         </div>

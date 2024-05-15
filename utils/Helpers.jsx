@@ -209,6 +209,14 @@ const TopBottomArrow = ({ color, className}) => {
       
     )
   }
+const Checked = ({ color, className}) => {
+    return (
+      <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+      <path d="M12 2.5C6.5 2.5 2 7 2 12.5C2 18 6.5 22.5 12 22.5C17.5 22.5 22 18 22 12.5C22 7 17.5 2.5 12 2.5ZM10 17.5L5 12.5L6.41 11.09L10 14.67L17.59 7.08L19 8.5L10 17.5Z" fill={color}/>
+    </svg>
+      
+    )
+  }
   
   
-export { DownArrow, Box1, Box2, DownArrow2, Minus, Plus, ThreeDot, Star1, DownArrow1, Star12, Next, Prev, Dropdown, Remove, Unselect, Select, Car, PerfumeSpray, Piggy, AddToSet, TopBottomArrow }
+export { DownArrow, Box1, Box2, DownArrow2, Minus, Plus, ThreeDot, Star1, DownArrow1, Star12, Next, Prev, Dropdown, Remove, Unselect, Select, Car, PerfumeSpray, Piggy, AddToSet, TopBottomArrow, Checked }

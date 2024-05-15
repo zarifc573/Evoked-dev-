@@ -17,7 +17,6 @@ const Pricing = () => {
 
   const handleClick = (show) => {
     setShow1(show);
-    
   };
 
 

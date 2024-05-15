@@ -21,7 +21,8 @@ module.exports = {
       backgroundImage: {
         'evoked': 'url(../public/assets/evoked.png)',
         'hero': 'url(../public/assets/bannerMobile.png)',
-        'banner': 'url(../public/assets/hero.svg)'
+        'banner': 'url(../public/assets/hero.svg)',
+        'collection': 'url(../public/assets/collectionRect.png)'
       },
       fontFamily:{
         primary: ['var(--font-josefin)'],
