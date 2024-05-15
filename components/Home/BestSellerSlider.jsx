@@ -31,8 +31,6 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
 
   // Function to handle adding an item to the set
   const handleAddToSetClick = (index) => {
-
-
       handleAddToSet(index);
   };
  

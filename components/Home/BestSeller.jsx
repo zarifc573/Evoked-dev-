@@ -4,7 +4,7 @@ import { Remove, TopBottomArrow } from '@/utils/Helpers';
 import { Links } from '@/utils/data';
 import { useGlobal } from '@/utils/globalContext';
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BestSellerSlider from './BestSellerSlider';
 import CheckMart from '@/utils/CheckMart';
 
@@ -13,6 +13,7 @@ const BestSeller = () => {
     const {buttonStates, setButtonStates, quantities, setQuantities} = useGlobal()
     const [totalPrice, setTotalPrice] = useState(0);
     const [actualPrice, setActualPrice] = useState(0);
+    const [shipping, setShipping] = useState(null)
     const [button, setButton] = useState(1)
     const [clicked, setClicked] = useState(false)
     const handleSwitchButton = (newButton) => {
@@ -30,7 +31,64 @@ const BestSeller = () => {
     const handlePopup = () => {
       setClicked(!clicked);
       };
-
+      useEffect(() => {
+        // Calculate actualPrice and totalPrice when quantities change
+        const calculatePrices = () => {
+          const totalItems = quantities.reduce((acc, curr) => acc + curr, 0);
+          let newActualPrice = 0;
+          let newTotalPrice = 0;
+      
+          // Adjust prices based on the total number of items
+          if (button === 1) { // For Subscribe & Save
+            if (totalItems === 1) {
+              newActualPrice = '';
+              newTotalPrice = 40;
+            } else if (totalItems === 2) {
+              newActualPrice = 80;
+              newTotalPrice = 60;
+            } else if (totalItems >= 3) {
+              newActualPrice = 120;
+              newTotalPrice = 75;
+            } else {
+              newTotalPrice = 0;
+            }
+          } else if (button === 2) { // For One Time Purchase
+            // Add your conditions here for one time purchase
+            if (totalItems === 1) {
+              newActualPrice = '';
+              newTotalPrice = 45; // Example price for one item
+              setShipping('Add 1 more to save £20')
+            } else if (totalItems === 2) {
+              newActualPrice = 90;
+              newTotalPrice = 70; // Example price for two items
+              setShipping('Add 1 more to save £45')
+            } else if (totalItems === 3) {
+              newActualPrice = 135;
+              newTotalPrice = 90; // Example price for three or more items
+              setShipping('Add 1 more to save £80')
+            } 
+            else if (totalItems === 4) {
+              newActualPrice = 180;
+              newTotalPrice = 100; // Example price for three or more items
+              setShipping('You’ve unlocked max savings of £80! 🎉')
+            }
+            else if (totalItems >= 5) {
+              newActualPrice = '';
+              newTotalPrice =  45 * totalItems; // Example price for three or more items
+              setShipping('No more savings here')
+            }
+            else {
+              newTotalPrice = 0; // Default price if no items
+              setShipping(null)
+            }
+          }
+      
+          setActualPrice(newActualPrice);
+          setTotalPrice(newTotalPrice);
+        };
+      
+        calculatePrices();
+      }, [button, quantities]);
       const handleAddToSet = (index) => {
         setClicked(true);
         setQuantities((prevQuantities) => {
@@ -50,10 +108,7 @@ const BestSeller = () => {
           }
           return newQuantities;
         });
-        if(quantities.length === 1){
-          setTotalPrice(45)
-          setActualPrice(60)
-        }
+        
       };
       const handleIncrement = (index) => {
         setQuantities((prevQuantities) => {
@@ -99,9 +154,10 @@ const handleRemoveItem = (index) => {
   });
 };
 
-// const actualPrice = quantities.length === 1 ? '' : quantities.length === 2 ?  ('$' + 80 ): quantities.length === 3 ?  ('$' + 120) : 0;
-// const totalPrice = quantities.length === 1 ?  40 : quantities.length === 2 ?  60 : quantities.length === 3 ?  75 : 0;
-console.log(quantities)
+
+console.log(actualPrice)
+console.log(totalPrice)
+console.log(quantities.length)
   return (
     <section className={isDarkMode ? 'bg-primary' : 'bg-white'}>
         <div className="w-[95%] mx-auto pt-[100px]">
@@ -199,7 +255,7 @@ console.log(quantities)
       <span className={` ${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[20px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>SUBSCRIBE NOW</span>
 
 
-      {totalPrice || actualPrice  ? (
+      {totalPrice || actualPrice > 0  ? (
                     <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
                       <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[10px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
                         {actualPrice + ' '}
@@ -223,7 +279,7 @@ console.log(quantities)
         <div className="mx-auto w-full md:flex-row md:justify-center lg:gap-5 md:gap-10 flex lg:flex-row flex-col justify-between items-center">
          <div className="w-[20%] 2xl:ml-[80px] lg:block hidden">
     <h3 className={`2xl:text-[32px] lg:text-[28px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Your Evoked Scents </h3>
-    <h4 className={`mt-[10px] 2xl:text-xl lg:text-[18px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Shipping</h4>
+    <h4 className={`mt-[10px] 2xl:text-xl lg:text-[18px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>{shipping}</h4>
  
   </div>
         <div className={`lg:w-[50%] `}>
@@ -280,15 +336,19 @@ console.log(quantities)
     <button className={`flex  2xl:w-[590px] lg:w-[100%] w-auto justify-between items-center px-[20px] lg:px-[24px] lg:py-[12px] 2xl:px-[30px] 2xl:py-[18px] py-[12px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#FFF] bg-white' : 'shadow-[4px_4px_0px_0px_#171717] border-white bg-primary'}`}>
       <span className={` ${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[20px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>BUY NOW</span>
 
-      <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
-       
-
-          <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
-            <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[10px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
-            </span>
-            $45
-          </span>
-      </span>
+      {totalPrice || actualPrice > 0  ? (
+                    <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
+                      <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[10px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
+                        {actualPrice + ' '}
+                      </span>
+                      ${totalPrice}
+                    </span>
+                  )
+                    :
+                    (<span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
+                      $0
+                    </span>)
+                  }
     </button>
    
     </div>
