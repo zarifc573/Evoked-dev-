@@ -11,6 +11,7 @@ export const GlobalProvider = ({ children }) => {
     const [selectedItems, setSelectedItems] = useState(Array(Links.length).fill(null));
     const [quantities, setQuantities] = useState({});
     const [clicked, setClicked] = useState(false)
+    
   return (
     <GlobalContext.Provider value={{buttonStates, setButtonStates,selectedItems, setSelectedItems,quantities, setQuantities, clicked, setClicked}}>
       {children}

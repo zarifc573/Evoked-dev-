@@ -100,20 +100,7 @@ const forFifty = selectedOptions[data.indexOf(selectedPlanData)].includes('50ml'
                 <span className={` ${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[20px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>SUBSCRIBE NOW</span>
 
                 <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
-                  {/* {selectedImages.length > 0 && (
-                    <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[32px] not-italic font-bold leading-[120%]`}>
-                      {selectedPlanData && (
-        <>
-          {selectedPlanData.discount && (
-            <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[10px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
-              {originalPrice}
-            </span>
-          )}
-          {selectedPlanData.discount ? ` ${discountedPrice}` : originalPrice}
-        </>
-      )}
-                    </span>
-                  )} */}
+              
 
                   {totalPrice || actualPrice > 0 ? (
                     <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
