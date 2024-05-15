@@ -9,7 +9,7 @@ export const GlobalProvider = ({ children }) => {
 
     const [buttonStates, setButtonStates] = useState(Array(Links.length).fill(false));
     const [selectedItems, setSelectedItems] = useState(Array(Links.length).fill(null));
-    const [quantities, setQuantities] = useState({});
+    const [quantities, setQuantities] = useState(Array(Links.length).fill(0))
     const [clicked, setClicked] = useState(false)
     
   return (

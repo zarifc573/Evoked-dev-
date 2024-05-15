@@ -137,7 +137,7 @@ const ProductSlider = () => {
                       }}
         spaceBetween={0}
         slidesPerView= 'auto'
-            loop={true}
+            loop={false}
             allowTouchMove={true}
             centeredSlides={true}
             scrollbar={{ draggable: true }}

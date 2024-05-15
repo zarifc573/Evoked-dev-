@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
+import { Navigation, Controller  } from 'swiper/modules';
 import { Links } from "../../utils/data";
 import { useGlobal } from "../../utils/globalContext";
 const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) => {
@@ -57,13 +58,15 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
   return (
     <div>
       <Swiper
-        spaceBetween={0}
-        slidesPerView="auto"
+        spaceBetween={30}
+        slidesPerView={'auto'}
         loop={false}
         allowTouchMove={true}
+        navigation
         mousewheel
+        modules={[Navigation, Controller ]}
         scrollbar={{ draggable: true }}
-        className="w-full h-full"
+        className={`w-full h-full ${isDarkMode ? 'bg-primary text-white dark-mode' : 'bg-white text-brand light-mode'}`}
         pagination={{ clickable: true }}
         onSlideChange={(swiper) => swiper}
         breakpoints={{
@@ -78,6 +81,10 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
           },
 
           1024: {
+            slidesPerView: 3,
+            spaceBetween: 60,
+          },
+          1580: {
             slidesPerView: 4,
             spaceBetween: 20,
           },
@@ -90,7 +97,7 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
         {Links.map((item, index) => (
           <SwiperSlide key={item.link}>
             <div
-              className={`flex px-5 w-[372px] cursor-pointer flex-col select-none items-center gap-[25px]  rounded-[var(--md,8px)]  border ${
+              className={`flex px-5 lg:w-[372px] cursor-pointer flex-col select-none items-center gap-[25px]  rounded-[var(--md,8px)]  border ${
                 isDarkMode
                   ? "border-white"
                   : "border-[color:var(--black,#171717)]"
@@ -122,7 +129,7 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
                 <Image
                   src={item.link}
                   alt="Perfume"
-                  className={"w-[150px] h-[231.65px]"}
+                  className={"2xl:w-[150px] 2xl:h-[231.65px] lg:w-[120px] lg:h-[180px] w-[100px] h-[150px]"}
                 />
                 <div className="flex flex-col justify-center ">
                   <span
@@ -239,9 +246,9 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
           ) : (
             // If quantity is greater than 0, show quantity and increment/decrement buttons
             <div className="flex items-center gap-[20px] justify-center mt-[25px]">
-               <button className={`border-primary border border-solid text-primary text-[22px] font-semibold  px-4 py-[9px] rounded-[var(--sm,4px)]`} onClick={() => handleDecrementChild(index)}>-</button>
-              <span className={`text-primary text-[22px] font-semibold`}>{quantities[index]}</span>
-              <button className={`border-primary border border-solid text-primary text-[22px] font-semibold  px-4 py-[9px] rounded-[var(--sm,4px)]`} onClick={() => handleIncrementChild(index)}>+</button>
+               <button className={`border border-solid  text-[22px] font-semibold  px-4 py-[9px] rounded-[var(--sm,4px)] ${isDarkMode ? 'border-white text-white' : 'border-primary text-primary'}`} onClick={() => handleDecrementChild(index)}>-</button>
+              <span className={`text-primary text-[22px] font-semibold ${isDarkMode ? ' text-white' : ' text-primary'}`}>{quantities[index]}</span>
+              <button className={`border-primary border border-solid text-primary text-[22px] font-semibold  px-4 py-[9px] rounded-[var(--sm,4px)] ${isDarkMode ? 'border-white text-white' : 'border-primary text-primary'}`} onClick={() => handleIncrementChild(index)}>+</button>
              
             </div>
           )}

@@ -12,7 +12,7 @@ const FooterDiscovery = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
  
   return (
-    <section className={`lg:py-[50px]  py-[30px]  bg-[#171717]`}>
+    <section className={`lg:pb-[50px] lg:pt-[0px]  pt-[30px] pb-[50px]  bg-[#171717]`}>
       <div className="lg:max-w-container w-[90%] mx-auto">
         <div className="">
         <div className={`2xl:w-[1398px]  mx-auto h-[1px] bg-white`}>

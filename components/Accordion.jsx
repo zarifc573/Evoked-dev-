@@ -60,7 +60,7 @@ const Accordion = () => {
         <div className="pb-[50px] lg:block md:flex md:flex-col justify-center items-center">
 
         
-        <h2 className={` text-center 2xl:text-5xl lg:text-[38px] not-italic font-bold leading-[130%] uppercase mb-[30px] lg:mb-[80px] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>FAQ</h2>
+        <h2 className={` text-center 2xl:text-5xl lg:text-[38px] text-[22px] not-italic font-bold leading-[130%] uppercase mb-[30px] lg:mb-[80px] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>FAQ</h2>
       {accordioData.map((item, index) => (
         <AccordionItem
           key={index}

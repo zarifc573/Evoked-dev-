@@ -160,37 +160,37 @@ console.log(totalPrice)
 console.log(quantities.length)
   return (
     <section className={isDarkMode ? 'bg-primary' : 'bg-white'}>
-        <div className="w-[95%] mx-auto pt-[100px]">
-        <div className="justify-between items-center flex mb-[50px]">
-    <div className="flex-col justify-start items-start gap-2.5 inline-flex">
-        <div className={` ${isDarkMode ? 'text-white' : 'text-zinc-800 '} text-5xl font-bold leading-[72px]`}>Best-sellers</div>
-        <div className={`${isDarkMode ? 'text-white' : 'text-zinc-800 '} text-[22px] font-normal leading-[33px]`}>Shop popular designer-like scents from Collection 1.</div>
+        <div className="lg:w-[95%] w-[90%] mx-auto pt-[100px]">
+        <div className="lg:justify-between lg:items-center items-start flex lg:flex-row flex-col mb-[50px]">
+    <div className="flex-col justify-start items-start lg:gap-2.5 inline-flex">
+        <div className={` ${isDarkMode ? 'text-white' : 'text-zinc-800 '} 2xl:text-5xl lg:text-[38px] text-[20px] font-bold leading-[72px]`}>Best-sellers</div>
+        <div className={`${isDarkMode ? 'text-white' : 'text-zinc-800 '} 2xl:text-[22px] lg:text-[18px] text-[12px] font-normal lg:leading-[33px]`}>Shop popular designer-like scents from Collection 1.</div>
     </div>
-    <div className="justify-start items-center gap-2.5 flex">
-        <button className={`${isDarkMode ? 'text-white' : 'text-zinc-800 '} text-[22px] font-semibold underline leading-[33px]`}>View Collection 1</button>
+    <div className="justify-start items-center gap-2.5 mt-[10px] lg:mt-0 flex">
+        <button className={`${isDarkMode ? 'text-white' : 'text-zinc-800 '}  2xl:text-[22px] lg:text-[18px] text-[12px] font-semibold underline lg:leading-[33px]`}>View Collection 1</button>
     </div>
 </div>
         <BestSellerSlider handleAddToSet={handleAddToSet} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
      
         </div>
         <div className="w-full fixed bottom-0 z-[9999] ">
-        <div onClick={handlePopup} className={`w-full select-none cursor-pointer py-[5px] bg-neutral-900 justify-center items-center gap-[5px] inline-flex`}>
-    <div className="text-center text-white text-base font-medium font-['Josefin Sans'] leading-tight">Your Cart</div>
+        <div onClick={handlePopup} className={`w-full select-none border border-solid cursor-pointer py-[5px] ${isDarkMode ? 'bg-zinc-800 ' : 'bg-neutral-900'} ${clicked ? 'border-white' : 'border-none'}  justify-center items-center gap-[5px] inline-flex`}>
+    <div className={`text-center ${isDarkMode ? 'text-white' : 'text-white'} text-base font-medium leading-tight`}>Your Cart</div>
 
-    <TopBottomArrow className={!clicked ? 'rotate-[180deg]' : 'rotate-0'} color={isDarkMode ? '' : 'white'}/>
+    <TopBottomArrow className={!clicked ? 'rotate-[180deg]' : 'rotate-0'} color={isDarkMode ? 'white' : 'white'}/>
 </div>
 {
   clicked ? 
   
     
-    <div className="w-full bg-[#F4F4F4] py-[30px] ">
+    <div className={`w-full  ${isDarkMode ? 'bg-[#28282A]' : 'bg-[#F4F4F4]'} py-[30px] `}>
       {/* Subscribe & Save */}
       {
         button === 1 ?
-  <div className="mx-auto w-full md:flex-row md:justify-center lg:gap-5 md:gap-10 flex lg:flex-row flex-col justify-between items-center">
-  <div className="w-[20%] 2xl:ml-[80px] lg:block hidden">
-    <h3 className={`2xl:text-[32px] lg:text-[28px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Your Evoked Scents </h3>
-    <h4 className={`mt-[10px] 2xl:text-xl lg:text-[18px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>build your set by adding 3</h4>
+  <div className="mx-auto w-full md:flex-row md:justify-center lg:gap-5 md:gap-10 flex lg:flex-row flex-col justify-between items-center gap-5">
+  <div className="w-[20%] 2xl:ml-[80px] lg:ml-[40px] lg:block hidden">
+    <h3 className={`2xl:text-[32px] lg:text-[24px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Your Evoked Scents </h3>
+    <h4 className={`mt-[10px] 2xl:text-xl lg:text-[16px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>build your set by adding 3</h4>
  
   </div>
   <div className={`lg:w-[40%] `}>
@@ -241,23 +241,23 @@ console.log(quantities.length)
     <div className="lg:flex items-center 2xl:gap-x-[20px] lg:gap-x-[10px]">
       
       <h6 className={`2xl:text-base text-[14px] lg:block hidden not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Deliver every:</h6>
-      <select className="w-auto px-2.5 py-[5px] rounded border border-neutral-900 justify-start items-center gap-[5px] inline-flex">
-<option className="text-zinc-800 text-lg font-normal font-['Josefin Sans']">1 month</option>
-<option className="text-zinc-800 text-lg font-normal font-['Josefin Sans']">2 months</option>
-<option className="text-zinc-800 text-lg font-normal font-['Josefin Sans']">3 months</option>
-<option className="text-zinc-800 text-lg font-normal font-['Josefin Sans']">4 months</option>
-<option className="text-zinc-800 text-lg font-normal font-['Josefin Sans']">5 months</option>
-<option className="text-zinc-800 text-lg font-normal font-['Josefin Sans']">6 months</option>
+      <select className="w-auto px-2.5 py-[5px] outline-none rounded border border-neutral-900 justify-start items-center gap-[5px] inline-flex">
+<option className="text-zinc-800 lg:text-lg text-[12px] font-normal ">1 month</option>
+<option className="text-zinc-800 lg:text-lg text-[12px] font-normal ">2 months</option>
+<option className="text-zinc-800 lg:text-lg text-[12px] font-normal ">3 months</option>
+<option className="text-zinc-800 lg:text-lg text-[12px] font-normal ">4 months</option>
+<option className="text-zinc-800 lg:text-lg text-[12px] font-normal ">5 months</option>
+<option className="text-zinc-800 lg:text-lg text-[12px] font-normal ">6 months</option>
 </select>
     </div>
     <div className="md:flex md:flex-col">
-    <button className={`flex  2xl:w-[590px] lg:w-[100%] w-auto justify-between items-center px-[20px] lg:px-[24px] lg:py-[12px] 2xl:px-[30px] 2xl:py-[18px] py-[12px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#FFF] bg-white' : 'shadow-[4px_4px_0px_0px_#171717] border-white bg-primary'}`}>
+    <button className={`flex  2xl:w-[590px] lg:w-[100%] lg:gap-8 gap-7 w-auto justify-between items-center px-[20px] lg:px-[24px] lg:py-[12px] 2xl:px-[30px] 2xl:py-[18px] py-[12px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#FFF] bg-white' : 'shadow-[4px_4px_0px_0px_#171717] border-white bg-primary'}`}>
       <span className={` ${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[20px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>SUBSCRIBE NOW</span>
 
 
       {totalPrice || actualPrice > 0  ? (
                     <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
-                      <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[10px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
+                      <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[12px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
                         {actualPrice + ' '}
                       </span>
                       ${totalPrice}
@@ -276,13 +276,13 @@ console.log(quantities.length)
       }
        {
         button === 2 ?
-        <div className="mx-auto w-full md:flex-row md:justify-center lg:gap-5 md:gap-10 flex lg:flex-row flex-col justify-between items-center">
-         <div className="w-[20%] 2xl:ml-[80px] lg:block hidden">
-    <h3 className={`2xl:text-[32px] lg:text-[28px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Your Evoked Scents </h3>
-    <h4 className={`mt-[10px] 2xl:text-xl lg:text-[18px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>{shipping}</h4>
+        <div className="mx-auto w-full md:flex-row md:justify-center lg:gap-5 md:gap-10 gap-5 flex lg:flex-row flex-col justify-between items-center">
+         <div className="w-[14%] 2xl:ml-[80px] lg:ml-[40px] lg:block hidden">
+    <h3 className={`2xl:text-[32px] lg:text-[24px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Your Evoked Scents </h3>
+    <h4 className={`mt-[10px] 2xl:text-xl lg:text-[16px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>{shipping}</h4>
  
   </div>
-        <div className={`lg:w-[50%] `}>
+        <div className={`2xl:w-[50%] lg:w-[56%]`}>
           <div className="flex flex-wrap gap-[20px] justify-center">
       
           {quantities.map((quantity, index) => (
@@ -333,12 +333,12 @@ console.log(quantities.length)
       
     </div>
     <div className="md:flex md:flex-col">
-    <button className={`flex  2xl:w-[590px] lg:w-[100%] w-auto justify-between items-center px-[20px] lg:px-[24px] lg:py-[12px] 2xl:px-[30px] 2xl:py-[18px] py-[12px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#FFF] bg-white' : 'shadow-[4px_4px_0px_0px_#171717] border-white bg-primary'}`}>
+    <button className={`flex  2xl:w-[590px] lg:w-[100%] lg:gap-8 gap-7 w-auto justify-between items-center px-[20px] lg:px-[24px] lg:py-[12px] 2xl:px-[30px] 2xl:py-[18px] py-[12px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#FFF] bg-white' : 'shadow-[4px_4px_0px_0px_#171717] border-white bg-primary'}`}>
       <span className={` ${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[20px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>BUY NOW</span>
 
       {totalPrice || actualPrice > 0  ? (
                     <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[24px] 2xl:text-[32px] not-italic font-bold leading-[120%]`}>
-                      <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[10px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
+                      <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[12px] lg:text-xl not-italic font-normal leading-[120%] line-through`}>
                         {actualPrice + ' '}
                       </span>
                       ${totalPrice}

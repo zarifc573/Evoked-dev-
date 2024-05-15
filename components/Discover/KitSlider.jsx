@@ -10,9 +10,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '@/app/globals.css'
-import video from '@/public/assets/video.png'
-import videoDark from '@/public/assets/dark-video.png'
-import Image from 'next/image';
 const KitSlider = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     const [firstSwiper, setFirstSwiper] = useState(null);
