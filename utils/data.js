@@ -9,6 +9,7 @@ const Links = [
     { id:'5', link: blue, scent:'Scent 5', smell:'Smells Like Dior Sauvage (5)', ingredients:'Modifiers, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note5', gender:'Women', price:'$45' },
     { id:'6', link: perfume, scent:'Scent 6', smell:'Smells Like Dior Sauvage (6)', ingredients:'Diluents, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note6', gender:'Men', price:'$95' },
     { id:'7', link: brown, scent:'Scent 7', smell:'Smells Like Dior Sauvage (7)', ingredients:'Colorants, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note7', gender:'Unisex', price:'$65' },
+    { id:'8', link: brown, scent:'Scent 8', smell:'Smells Like Dior Sauvage (7)', ingredients:'Colorants, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note8', gender:'Men', price:'$65' },
   ];
 
   const MenProducts = Links.filter(product => product.gender === 'Men');

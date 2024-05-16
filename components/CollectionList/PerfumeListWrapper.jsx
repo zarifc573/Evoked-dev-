@@ -9,11 +9,11 @@ const PerfumeListWrapper = () => {
   return (
     <div>
         <DarkModeProvider>
-          <NavbarCollection/>
           <GlobalProvider>
+          <NavbarCollection/>
           <Collections/>
-          </GlobalProvider>
             <FooterDiscovery/>
+          </GlobalProvider>
         </DarkModeProvider>
     </div>
   )
