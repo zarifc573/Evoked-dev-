@@ -15,6 +15,7 @@ const Collections = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [selectedPerfumes, setSelectedPerfumes] = useState([]);
   const handleClick = (selectedButton) => {
     setSelectedButton(selectedButton);
   };
@@ -29,10 +30,10 @@ const Collections = () => {
   : [];
   const handleSearch = (query) => {
     setSearchQuery(query);
-    const filtered = Links.filter(product => product.scent && product.scent.toLowerCase().includes(query.toLowerCase()));
     setSuggestions(filteredProducts);
     setSelectedIndex(-1); // Reset selected index when new search query is entered
   };
+  
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowDown") {
@@ -46,6 +47,19 @@ const Collections = () => {
     } else if (e.key === "Enter" && selectedIndex !== -1) {
       handleSearch(suggestions[selectedIndex].scent);
     }
+  };
+  const handleSelectSuggestion = (perfumeName) => {
+    setSearchQuery(perfumeName);
+    setSuggestions([]); // Close suggestions dropdown after selecting a suggestion
+    setSelectedPerfumes(prevPerfumes => [...prevPerfumes, perfumeName]); // Add selected perfume to the list of selected perfumes
+  };
+
+  const handleMouseEnter = (index) => {
+    setSelectedIndex(index);
+  };
+  
+  const handleMouseLeave = () => {
+    setSelectedIndex(-1);
   };
 
   useEffect(() => {
@@ -96,7 +110,9 @@ console.log(searchQuery)
                             ? "bg-gray-200"
                             : "hover:bg-gray-100"
                         }`}
-                        onClick={() => handleSearch(item.scent)}
+                        onClick={() => handleSelectSuggestion(item.scent)} 
+                        onMouseEnter={() => handleMouseEnter(index)}
+                        onMouseLeave={handleMouseLeave}
                       >
                         {item.scent}
                       </div>
@@ -208,18 +224,28 @@ console.log(searchQuery)
             </span>
           </div>
          
-          {selectedButton === 1 ? (
-  // Display all products when selectedButton is set to 1 (All)
-  <Category category={Links}/>
-) : selectedButton === 2 ? (
-  // Display men products when selectedButton is set to 2 (Men)
-  <Category category={MenProducts}/>
-) : selectedButton === 3 ? (
-  // Display women products when selectedButton is set to 3 (Women)
-  <Category category={WomenProducts}/>
-) : selectedButton === 4 && (
-  // Display unisex products when selectedButton is set to 4 (Unisex)
-  <Category category={UnisexProducts}/>
+          {selectedPerfumes.length > 0 ? (
+  // Display products based on the selected button
+  <>
+    {selectedButton === 1 ? (
+      // Display all products when selectedButton is set to 1 (All)
+      <Category category={Links}/>
+    ) : selectedButton === 2 ? (
+      // Display men products when selectedButton is set to 2 (Men)
+      <Category category={MenProducts}/>
+    ) : selectedButton === 3 ? (
+      // Display women products when selectedButton is set to 3 (Women)
+      <Category category={WomenProducts}/>
+    ) : selectedButton === 4 && (
+      // Display unisex products when selectedButton is set to 4 (Unisex)
+      <Category category={UnisexProducts}/>
+    )}
+  </>
+) : (
+  // Display search results if there are any, otherwise display nothing
+  filteredProducts.length > 0 && (
+    <Category category={filteredProducts}/>
+  )
 )}
         </div>
       </div>
