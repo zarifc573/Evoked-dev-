@@ -1,11 +1,16 @@
 "use client"
 // DarkModeContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DarkModeContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false); // Initial dark mode state
+  const savedDarkMode = JSON.parse(localStorage.getItem('darkMode')) || false;
+  const [isDarkMode, setIsDarkMode] = useState(savedDarkMode);
+
+  useEffect(() => {
+    localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);

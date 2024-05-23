@@ -1,46 +1,53 @@
-import React, { useState } from 'react';
 
-const Pagination = ({ category }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6; // Number of items per page
+"use client"
 
-  // Logic to calculate the index range of products to display
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = category.slice(indexOfFirstItem, indexOfLastItem);
+import { useState } from "react";
+import Category from "./Category";
+import ReactPaginate from "react-paginate";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { useDarkMode } from "@/utils/DarkModeContext";
 
-  // Event handler for changing the current page
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+const PaginatedItems = ({ items, itemsPerPage, handleAddToSet, handleIncrement, handleDecrement }) => {
+  const [itemOffset, setItemOffset] = useState(0);
+  const { isDarkMode } = useDarkMode();
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = items.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(items.length / itemsPerPage);
+
+  const handlePageClick = (event) => {
+    const newOffset = event.selected * itemsPerPage;
+    setItemOffset(newOffset);
+  };
 
   return (
-    <div>
-      {/* Render the current page of products */}
-      {currentItems.map(product => (
-        <div key={product.id}>
-          {/* Render product details */}
-          <p>{product.name}</p>
-        </div>
-      ))}
-
-      {/* Pagination controls */}
-      <div>
-        {/* Previous button */}
-        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
-          Previous
-        </button>
-
-        {/* Page numbers */}
-        {Array.from({ length: Math.ceil(category.length / itemsPerPage) }, (_, index) => (
-          <button key={index} onClick={() => paginate(index + 1)}>{index + 1}</button>
-        ))}
-
-        {/* Next button */}
-        <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastItem >= category.length}>
-          Next
-        </button>
-      </div>
-    </div>
+    <>
+      <Category
+        category={currentItems}
+        handleAddToSet={handleAddToSet}
+        handleIncrement={handleIncrement}
+        handleDecrement={handleDecrement}
+      />
+      <ReactPaginate
+        nextLabel={
+          <span className={`w-10 ml-4 h-10 flex items-center justify-center ${isDarkMode ? "bg-white" : "bg-gray-300"} rounded`}>
+            <BsChevronRight />
+          </span>
+        }
+        previousLabel={
+          <span className={`w-10 mr-4 h-10 flex items-center justify-center ${isDarkMode ? "bg-white" : "bg-gray-300"} rounded`}>
+            <BsChevronLeft />
+          </span>
+        }
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        containerClassName="flex lg:w-auto mx-auto w-[90%] items-center lg:mt-[100px] mt-[50px] gap-[10px] mb-8 justify-center"
+        pageClassName="block border border-solid border-gray-300 w-10 h-10 flex items-center justify-center rounded"
+        activeClassName={`bg-black text-white`}
+        disabledClassName={`${isDarkMode ? "text-white" : "text-black"} opacity-50`}
+      />
+    </>
   );
 };
 
-export default Pagination;
+export default PaginatedItems;

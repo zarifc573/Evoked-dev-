@@ -11,6 +11,7 @@ import "swiper/css/scrollbar";
 import { Navigation, Controller  } from 'swiper/modules';
 import { Links } from "../../utils/data";
 import { useGlobal } from "../../utils/globalContext";
+import { FaMinus, FaPlus } from "react-icons/fa";
 const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const { buttonStates, setButtonStates, quantities, setQuantities, clicked, setClicked } = useGlobal();
@@ -228,30 +229,29 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
                     </button>
                     {/* Add to Set button */}
                     {quantities[index] === 0 ? (
-            // If quantity is 0, show Add to Set button
-            <button
-            onClick={() => handleAddToSetClick(index)}
-            className={`w-[220px] flex  mx-auto items-center justify-center gap-2.5  text-center text-[16px] border border-solid lg:text-2xl  not-italic font-medium leading-[120%] px-5 py-[10px] rounded-[var(--sm,4px)]   mt-[25px] ${
-              isDarkMode
-                ? " bg-primary text-white"
-                : "bg-transparent text-[#28282A] border-[#171717]"
-            } `}
-          >
-            Add To Set
-            <AddToSet
-              color={isDarkMode ? "white" : "#28282A"}
-              rect={isDarkMode ? "#171717" : "white"}
-            />
-          </button>
-          ) : (
-            // If quantity is greater than 0, show quantity and increment/decrement buttons
-            <div className="flex items-center gap-[20px] justify-center mt-[25px]">
-               <button className={`border border-solid  text-[22px] font-semibold  px-4 py-[9px] rounded-[var(--sm,4px)] ${isDarkMode ? 'border-white text-white' : 'border-primary text-primary'}`} onClick={() => handleDecrementChild(index)}>-</button>
-              <span className={`text-primary text-[22px] font-semibold ${isDarkMode ? ' text-white' : ' text-primary'}`}>{quantities[index]}</span>
-              <button className={`border-primary border border-solid text-primary text-[22px] font-semibold  px-4 py-[9px] rounded-[var(--sm,4px)] ${isDarkMode ? 'border-white text-white' : 'border-primary text-primary'}`} onClick={() => handleIncrementChild(index)}>+</button>
-             
-            </div>
-          )}
+                  <button
+                    onClick={() => handleAddToSetClick(index)}
+                    className={`w-[220px] mx-auto gap-3 flex items-center justify-center px-5 py-2 rounded border border-solid ${isDarkMode ? "bg-primary text-white" : "bg-transparent text-[#28282A] border-[#171717]"} text-[16px] lg:text-2xl font-medium leading-[120%] mt-3`}
+                  >
+                    Add To Set <AddToSet color={isDarkMode ? "white" : "#28282A"} rect={isDarkMode ? "#171717" : "white"} />
+                  </button>
+                ) : (
+                  <div className="flex items-center justify-center gap-3 mt-3">
+                    <button
+                      className={`border border-solid text-[22px] font-semibold px-4 py-1 rounded ${isDarkMode ? "border-white text-white" : "border-primary text-primary"}`}
+                      onClick={() => handleDecrementChild(index)}
+                    >
+                      <FaMinus />
+                    </button>
+                    <span className={`text-[22px] font-semibold ${isDarkMode ? "text-white" : "text-primary"}`}>{quantities[index]}</span>
+                    <button
+                      className={`border border-primary border-solid text-primary text-[22px] font-semibold px-4 py-1 rounded ${isDarkMode ? "border-white text-white" : "border-primary text-primary"}`}
+                      onClick={() => handleIncrementChild(index)}
+                    >
+                      <FaPlus />
+                    </button>
+                  </div>
+                )}
                   </div>
                 </div>
               </div>

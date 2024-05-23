@@ -3,62 +3,28 @@ import React, { useState } from "react";
 import searchIcon from "@/public/assets/ic_outline-search.svg";
 import ArrowSearch from "@/public/assets/ArrowSearch.svg";
 import Image from "next/image";
-import { Checked } from "@/utils/Helpers";
 import { useDarkMode } from "@/utils/DarkModeContext";
 import { Links, MenProducts, UnisexProducts, WomenProducts } from "@/utils/data";
 import { useGlobal } from "@/utils/GlobalContext";
-import Category from "./CollectionParts/Category";
-import ReactPaginate from 'react-paginate';
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import PaginatedItems from "./CollectionParts/Pagination";
+import ToggleButton from "./CollectionParts/ToggleButton";
+import BundleBox from "./CollectionParts/BundleBox";
+import Link from "next/link";
 
-function PaginatedItems({ items, itemsPerPage }) {
-  const [itemOffset, setItemOffset] = useState(0);
-
-  const endOffset = itemOffset + itemsPerPage;
-  const currentItems = items.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(items.length / itemsPerPage);
-
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
-    setItemOffset(newOffset);
-  };
-
-  return (
-    <>
-      <Category category={currentItems} />
-      <ReactPaginate
-        nextLabel={<span className="w-10 ml-4 h-10 flex items-center justify-center bg-gray-300 rounded">
-          <BsChevronRight />
-        </span>}
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel={<span className="w-10 mr-4 h-10 flex items-center justify-center bg-gray-300 rounded">
-          <BsChevronLeft />
-        </span>}
-        containerClassName="flex items-center mt-8 mb-8 justify-center"
-        pageClassName="block border border-solid border-gray-300 w-10 h-10 flex items-center justify-center rounded"
-        activeClassName="bg-black text-white"
-      />
-    </>
-  );
-}
 const Collections = () => {
   const { isDarkMode } = useDarkMode();
-  const { selectedButton, setSelectedButton } = useGlobal();
+  const { setButtonStates, setQuantities, setClicked, selectedButton, setSelectedButton, button, setButton } = useGlobal();
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [selectedPerfumes, setSelectedPerfumes] = useState([]);
-
   const handleClick = (selectedButton) => {
     setSelectedButton(selectedButton);
     setSelectedPerfumes([]); // Reset selected perfumes when a new category is selected
     setSearchQuery(''); // Clear the search query when a new category is selected
   };
-
-  const getProductsByCategory = (category) => {
-    switch (category) {
+  const getProductsByCategory = (selectedButton) => {
+    switch (selectedButton) {
       case 1:
         return Links;
       case 2:
@@ -112,23 +78,65 @@ const Collections = () => {
   const handleMouseLeave = () => {
     setSelectedIndex(-1);
   };
+  const handleAddToSet = (index, item) => {
+  setClicked(true);
+       setQuantities((prevQuantities) => {
+        const newQuantities = [...prevQuantities];
+        const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); // Calculate total items
+    
+        // Check if button is 1 or 2 to determine the maximum limit
+        const maxLimit = button === 1 ? 3 : 10;
+    
+        // Check if total items is less than the maximum limit before incrementing quantity
+        if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
+          newQuantities[index] += 1;
+        } else {
+          // If the maximum limit is reached, return early to prevent further execution
+          // alert("You can only add a maximum of 3 items to your set.");
+          return prevQuantities;
+        }
+        return newQuantities;
+      });
+};
+    const handleIncrement = (index) => {
+      setQuantities((prevQuantities) => {
+        const newQuantities = [...prevQuantities];
+        const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); 
+        const maxLimit = button === 1 ? 3 : 10;
+    
+        if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
+          newQuantities[index] += 1;
+        } else {
+          return prevQuantities;
+        }
+        return newQuantities;
+      });
+    };
+   const handleDecrement = (index) => {
+setButtonStates(prevStates => {
+  const newButtonStates = [...prevStates];
+  newButtonStates[index] = false; 
+  return newButtonStates;
+});
+};
 
   return (
-    <section>
+    <section className={`${isDarkMode ? 'bg-primary' : 'bg-white'} pb-[10px] overflow-x-hidden
+    `}>
       <div className="bg-collection bg-cover bg-center">
-        <div className="max-w-container mx-auto">
-          <div className="text-white text-base pt-[35px] font-medium inline-block cursor-pointer">
-            Home / Perfumes
+        <div className="lg:max-w-container w-[90%]  mx-auto">
+          <div className="text-white text-base lg:mt-[35px] mt-[80px] font-medium inline-block cursor-pointer">
+            <Link href='/' className="inline-block">Home</Link>/ Perfumes
           </div>
-          <div className="flex pt-[195px] pb-[60px] justify-center items-center">
+          <div className="flex lg:pt-[195px] pb-[60px] justify-center items-center">
             <div className="flex-col items-start inline-flex mx-auto justify-center">
-              <h3 className="text-white text-center text-5xl font-bold font-['Josefin Sans'] uppercase leading-[57.60px]">
+              <h3 className="text-white text-center lg:text-5xl text-[26px] font-bold font-['Josefin Sans'] uppercase leading-[57.60px]">
                 Find Your Scents
               </h3>
-              <p className="text-white mt-[40px] text-2xl font-semibold font-['Josefin Sans'] leading-[28.80px]">
+              <p className="text-white mt-[40px] lg:text-2xl text-[18px] font-semibold font-['Josefin Sans'] leading-[28.80px]">
                 Search by perfume
               </p>
-              <div className="w-[464px] relative mt-[20px] border-b border-solid border-white justify-between gap-2.5 items-center inline-flex">
+              <div className="lg:w-[464px] relative lg:mt-[20px] border-b border-solid border-white justify-between gap-2.5 items-center inline-flex">
                 <Image src={searchIcon} alt="Icon" className="w-[9%]" />
                 <input
                   type="text"
@@ -163,106 +171,29 @@ const Collections = () => {
         </div>
       </div>
       <div className={`${isDarkMode ? "bg-primary" : "bg-white"}`}>
-        <div className="max-w-container lg:w-[90%] mx-auto">
-          <div className="flex gap-[25px] py-[70px]">
-            <div
-              onClick={() => handleClick(1)}
-              className="justify-start cursor-pointer items-start gap-2.5 inline-flex"
-            >
-              {selectedButton === 1 ? (
-                <Checked color={isDarkMode ? "white" : "black"} />
-              ) : (
-                <div
-                  className={`w-6 h-6 relative border ${
-                    isDarkMode ? "border-white" : "border-[#28282AB2]"
-                  }  rounded-[50%]`}
-                />
-              )}
-              <div
-                className={`${isDarkMode ? "text-white" : "text-black"} text-2xl font-semibold leading-[28.80px]`}
-              >
-                All
-              </div>
-            </div>
-            <div
-              onClick={() => handleClick(2)}
-              className="justify-start cursor-pointer items-start gap-2.5 inline-flex"
-            >
-              {selectedButton === 2 ? (
-                <Checked color={isDarkMode ? "white" : "black"} />
-              ) : (
-                <div
-                  className={`w-6 h-6 relative border ${
-                    isDarkMode ? "border-white" : "border-[#28282AB2]"
-                  }  rounded-[50%]`}
-                />
-              )}
-              <div
-                className={`${isDarkMode ? "text-white" : "text-black"} text-2xl font-semibold leading-[28.80px]`}
-              >
-                Men
-              </div>
-            </div>
-            <div
-              onClick={() => handleClick(3)}
-              className="justify-start cursor-pointer items-start gap-2.5 inline-flex"
-            >
-              {selectedButton === 3 ? (
-                <Checked color={isDarkMode ? "white" : "black"} />
-              ) : (
-                <div
-                  className={`w-6 h-6 relative border ${
-                    isDarkMode ? "border-white" : "border-[#28282AB2]"
-                  }  rounded-[50%]`}
-                />
-              )}
-              <div
-                className={`${isDarkMode ? "text-white" : "text-black"} text-2xl font-semibold leading-[28.80px]`}
-              >
-                Women
-              </div>
-            </div>
-            <div
-              onClick={() => handleClick(4)}
-              className="justify-start cursor-pointer items-start gap-2.5 inline-flex"
-            >
-              {selectedButton === 4 ? (
-                <Checked color={isDarkMode ? "white" : "black"} />
-              ) : (
-                <div
-                  className={`w-6 h-6 relative border ${
-                    isDarkMode ? "border-white" : "border-[#28282AB2]"
-                  }  rounded-[50%]`}
-                />
-              )}
-              <div
-                className={`${isDarkMode ? "text-white" : "text-black"} text-2xl font-semibold leading-[28.80px]`}
-              >
-                Unisex
-              </div>
-            </div>
+        <div className="2xl:max-w-container w-[90%]  mx-auto">
+          <div className="flex flex-wrap items-center lg:justify-start justify-center lg:gap-[25px] gap-[20px] lg:py-[70px] py-[35px] ">
+            <ToggleButton handleClick={() => handleClick(1)} selected={selectedButton === 1}  text="All"/>
+            <ToggleButton handleClick={() => handleClick(2)} selected={selectedButton === 2}  text="Men"/>
+            <ToggleButton handleClick={() => handleClick(3)} selected={selectedButton === 3}  text="Women"/>
+            <ToggleButton handleClick={() => handleClick(4)} selected={selectedButton === 4}  text="Unisex"/>
           </div>
-          <div>
-            <span className="text-black text-5xl font-bold font-['Josefin Sans'] leading-[72px]">
+          <div className="flex flex-col lg:justify-start">
+            <span className={` ${isDarkMode ? 'text-white' : 'text-black'} lg:text-5xl text-[24px] font-bold font-['Josefin Sans'] lg:leading-[72px] lg:text-start text-center`}>
               Meet Collection 1.
               <br />
             </span>
-            <span className="text-black text-[32px] font-normal font-['Josefin Sans'] leading-[48px]">
+            <span className={`${isDarkMode ? 'text-white' : 'text-black'} lg:text-[32px] text-[18px] font-normal font-['Josefin Sans'] lg:leading-[48px] lg:text-start text-center`}>
               Confidence, now bottled with iconic designer-like scents.
             </span>
           </div>
-
-          {/* {selectedPerfumes.length > 0 ? (
-            <Category category={selectedPerfumes} />
-          ) : (
-            filteredProducts.length > 0 && <Category category={filteredProducts} />
-          )} */}
-
-      <PaginatedItems items={selectedPerfumes.length > 0 ? selectedPerfumes : filteredProducts} itemsPerPage={6} />
+<div className="lg:mt-[50px] mt-[30px]">
+      <PaginatedItems items={selectedPerfumes.length > 0 ? selectedPerfumes : filteredProducts} itemsPerPage={8} handleAddToSet={handleAddToSet} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
+      </div>
         </div>
       </div>
+     <BundleBox/>
     </section>
   );
 };
-
 export default Collections;

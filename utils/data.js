@@ -10,6 +10,8 @@ const Links = [
     { id:'6', link: perfume, scent:'Bleu de Chanel', smell:'Smells Like Dior Sauvage (6)', ingredients:'Diluents, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note6', gender:'Men', price:'$95' },
     { id:'7', link: brown, scent:'Baccarat Rouge 540', smell:'Smells Like Dior Sauvage (7)', ingredients:'Colorants, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note7', gender:'Unisex', price:'$65' },
     { id:'8', link: perfume, scent:'Aventus by Creed', smell:'Smells Like Dior Sauvage (7)', ingredients:'Colorants, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note8', gender:'Men', price:'$65' },
+    { id:'9', link: perfume, scent:'Aventus by Creed2', smell:'Smells Like Dior Sauvage (7)', ingredients:'Colorants, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note9', gender:'Men', price:'$65' },
+    { id:'10', link: perfume, scent:'Aventus by Creed3', smell:'Smells Like Dior Sauvage (7)', ingredients:'Colorants, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo, alias sit eum delectus itaque minima distinctio facere enim cumque accusamus!', notes:'Note10', gender:'Men', price:'$65' },
   ];
 
   const MenProducts = Links.filter(product => product.gender === 'Men');

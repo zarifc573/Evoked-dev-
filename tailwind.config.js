@@ -22,7 +22,10 @@ module.exports = {
         'evoked': 'url(../public/assets/evoked.png)',
         'hero': 'url(../public/assets/bannerMobile.png)',
         'banner': 'url(../public/assets/hero.svg)',
-        'collection': 'url(../public/assets/collectionRect.png)'
+        'collection': 'url(../public/assets/collectionRect.png)',
+        'collectionImage': 'url(../public/assets/collectionListImage.png)',
+        'preSelling': 'url(../public/assets/preselling.png)',
+        
       },
       fontFamily:{
         primary: ['var(--font-josefin)'],

@@ -1,181 +1,116 @@
-"use client"
-import { useDarkMode } from '@/utils/DarkModeContext';
+"use client";
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import { Checked } from "@/utils/Helpers";
+import { useDarkMode } from "@/utils/DarkModeContext";
+import { Links, MenProducts, UnisexProducts, WomenProducts } from "@/utils/data";
+import { useGlobal } from "@/utils/GlobalContext";
 import { Remove, TopBottomArrow } from '@/utils/Helpers';
-import { Links } from '@/utils/data';
-import { useGlobal } from '@/utils/globalContext';
-import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
-import BestSellerSlider from './BestSellerSlider';
-import Link from 'next/link';
 
-const BestSeller = () => {
-    const { isDarkMode, toggleDarkMode } = useDarkMode();
-    const {buttonStates, setButtonStates, quantities, setQuantities} = useGlobal()
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [actualPrice, setActualPrice] = useState(0);
-    const [shipping, setShipping] = useState(null)
-    const [button, setButton] = useState(1)
-    const [clicked, setClicked] = useState(false)
-    const handleSwitchButton = (newButton) => {
-      // Reset quantities to empty boxes when switching buttons
-      const newQuantities = new Array(Links.length).fill(0);
-      setQuantities(newQuantities);
-    
-      // Update the button state
-      setButton(newButton);
+
+const BundleBox = () => {
+  const { isDarkMode } = useDarkMode();
+  const { buttonStates, setButtonStates,selectedItems, setSelectedItems, quantities, setQuantities, clicked, setClicked, selectedButton, setSelectedButton, button, setButton } = useGlobal();
+
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [actualPrice, setActualPrice] = useState(0);
+  const [shipping, setShipping] = useState(null)
+  const handleSwitchButton = (newButton) => {
+    // Reset quantities to empty boxes when switching buttons
+    const newQuantities = new Array(Links.length).fill(0);
+    setQuantities(newQuantities);
+  
+    // Update the button state
+    setButton(newButton);
+  };
+  const handleClickButton = (button) => {
+    handleSwitchButton(button);
     };
-    const handleClick = (button) => {
-      handleSwitchButton(button);
-      };
-      
-    const handlePopup = () => {
-      setClicked(!clicked);
-      };
-      useEffect(() => {
-        // Calculate actualPrice and totalPrice when quantities change
-        const calculatePrices = () => {
-          const totalItems = quantities.reduce((acc, curr) => acc + curr, 0);
-          let newActualPrice = 0;
-          let newTotalPrice = 0;
-      
-          // Adjust prices based on the total number of items
-          if (button === 1) { // For Subscribe & Save
-            if (totalItems === 1) {
-              newActualPrice = '';
-              newTotalPrice = 40;
-            } else if (totalItems === 2) {
-              newActualPrice = 80;
-              newTotalPrice = 60;
-            } else if (totalItems >= 3) {
-              newActualPrice = 120;
-              newTotalPrice = 75;
-            } else {
-              newTotalPrice = 0;
-            }
-          } else if (button === 2) { // For One Time Purchase
-            // Add your conditions here for one time purchase
-            if (totalItems === 1) {
-              newActualPrice = '';
-              newTotalPrice = 45; // Example price for one item
-              setShipping('Add 1 more to save £20')
-            } else if (totalItems === 2) {
-              newActualPrice = 90;
-              newTotalPrice = 70; // Example price for two items
-              setShipping('Add 1 more to save £45')
-            } else if (totalItems === 3) {
-              newActualPrice = 135;
-              newTotalPrice = 90; // Example price for three or more items
-              setShipping('Add 1 more to save £80')
-            } 
-            else if (totalItems === 4) {
-              newActualPrice = 180;
-              newTotalPrice = 100; // Example price for three or more items
-              setShipping('You’ve unlocked max savings of £80! 🎉')
-            }
-            else if (totalItems >= 5) {
-              newActualPrice = '';
-              newTotalPrice =  45 * totalItems; // Example price for three or more items
-              setShipping('No more savings here')
-            }
-            else {
-              newTotalPrice = 0; // Default price if no items
-              setShipping(null)
-            }
+    
+  const handlePopup = () => {
+    setClicked(!clicked);
+    };
+    useEffect(() => {
+      // Calculate actualPrice and totalPrice when quantities change
+      const calculatePrices = () => {
+        const totalItems = quantities.reduce((acc, curr) => acc + curr, 0);
+        let newActualPrice = 0;
+        let newTotalPrice = 0;
+    
+        // Adjust prices based on the total number of items
+        if (button === 1) { // For Subscribe & Save
+          if (totalItems === 1) {
+            newActualPrice = '';
+            newTotalPrice = 40;
+          } else if (totalItems === 2) {
+            newActualPrice = 80;
+            newTotalPrice = 60;
+          } else if (totalItems >= 3) {
+            newActualPrice = 120;
+            newTotalPrice = 75;
+          } else {
+            newTotalPrice = 0;
           }
-      
-          setActualPrice(newActualPrice);
-          setTotalPrice(newTotalPrice);
-        };
-      
-        calculatePrices();
-      }, [button, quantities]);
+        } else if (button === 2) { // For One Time Purchase
+          // Add your conditions here for one time purchase
+          if (totalItems === 1) {
+            newActualPrice = '';
+            newTotalPrice = 45; // Example price for one item
+            setShipping('Add 1 more to save £20')
+          } else if (totalItems === 2) {
+            newActualPrice = 90;
+            newTotalPrice = 70; // Example price for two items
+            setShipping('Add 1 more to save £45')
+          } else if (totalItems === 3) {
+            newActualPrice = 135;
+            newTotalPrice = 90; // Example price for three or more items
+            setShipping('Add 1 more to save £80')
+          } 
+          else if (totalItems === 4) {
+            newActualPrice = 180;
+            newTotalPrice = 100; // Example price for three or more items
+            setShipping('You’ve unlocked max savings of £80! 🎉')
+          }
+          else if (totalItems >= 5) {
+            newActualPrice = '';
+            newTotalPrice =  45 * totalItems; // Example price for three or more items
+            setShipping('No more savings here')
+          }
+          else {
+            newTotalPrice = 0; // Default price if no items
+            setShipping(null)
+          }
+        }
+    
+        setActualPrice(newActualPrice);
+        setTotalPrice(newTotalPrice);
+      };
+    
+      calculatePrices();
+    }, [button, quantities]);
 
-      const handleAddToSet = (index) => {
-        setClicked(true);
-        setQuantities((prevQuantities) => {
-          const newQuantities = [...prevQuantities];
-          const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); // Calculate total items
-      
-          // Check if button is 1 or 2 to determine the maximum limit
-          const maxLimit = button === 1 ? 3 : 10;
-      
-          // Check if total items is less than the maximum limit before incrementing quantity
-          if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
-            newQuantities[index] += 1;
-          } else {
-            // If the maximum limit is reached, return early to prevent further execution
-            // alert("You can only add a maximum of 3 items to your set.");
-            return prevQuantities;
-          }
-          return newQuantities;
-        });
-        
-      };
-      const handleIncrement = (index) => {
-        setQuantities((prevQuantities) => {
-          const newQuantities = [...prevQuantities];
-          const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); // Calculate total items
-      
-          // Check if button is 1 or 2 to determine the maximum limit
-          const maxLimit = button === 1 ? 3 : 10;
-      
-          // Check if total items is less than the maximum limit before incrementing quantity
-          if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
-            newQuantities[index] += 1;
-          } else {
-            // If the maximum limit is reached, return early to prevent further execution
-            // alert("You can only add a maximum of 3 items to your set.");
-            return prevQuantities;
-          }
-          return newQuantities;
-        });
-      };
-     const handleDecrement = (index) => {
-  // Update the buttonStates array to remove the item at the specified index
-  setButtonStates(prevStates => {
-    const newButtonStates = [...prevStates];
-    newButtonStates[index] = false; // Set the state to false to remove the item
-    return newButtonStates;
-  });
-};
+
 const handleRemoveItem = (index) => {
-  // Update quantities array to decrease the quantity of the item at the specified index
-  setQuantities((prevQuantities) => {
-    const newQuantities = [...prevQuantities];
-    // Decrease quantity by 1
-    newQuantities[index] = Math.max(newQuantities[index] - 1, 0);
-    return newQuantities;
-  });
+// Update quantities array to decrease the quantity of the item at the specified index
+setQuantities((prevQuantities) => {
+  const newQuantities = [...prevQuantities];
+  // Decrease quantity by 1
+  newQuantities[index] = Math.max(newQuantities[index] - 1, 0);
+  return newQuantities;
+});
 
-  // Update buttonStates array to indicate the item at the specified index is no longer selected
-  setButtonStates((prevStates) => {
-    const newButtonStates = [...prevStates];
-    newButtonStates[index] = false;
-    return newButtonStates;
-  });
+// Update buttonStates array to indicate the item at the specified index is no longer selected
+setButtonStates((prevStates) => {
+  const newButtonStates = [...prevStates];
+  newButtonStates[index] = false;
+  return newButtonStates;
+});
 };
-
 
   return (
-    <section className={isDarkMode ? 'bg-primary' : 'bg-white'}>
-        <div className="lg:w-[95%] w-[90%] mx-auto pt-[100px]">
-        <div className="lg:justify-between lg:items-center items-start flex lg:flex-row flex-col mb-[50px]">
-    <div className="flex-col justify-start items-start lg:gap-2.5 inline-flex">
-        <div className={` ${isDarkMode ? 'text-white' : 'text-zinc-800 '} 2xl:text-5xl lg:text-[38px] text-[20px] font-bold leading-[72px]`}>Best-sellers</div>
-        <div className={`${isDarkMode ? 'text-white' : 'text-zinc-800 '} 2xl:text-[22px] lg:text-[18px] text-[12px] font-normal lg:leading-[33px]`}>Shop popular designer-like scents from Collection 1.</div>
-    </div>
-    <div className="justify-start items-center gap-2.5 mt-[10px] lg:mt-0 flex">
-      <Link href='/collections' className='inline-block'>
-        <button className={`${isDarkMode ? 'text-white' : 'text-zinc-800 '}  2xl:text-[22px] lg:text-[18px] text-[12px] font-semibold underline lg:leading-[33px]`}>View Collection 1</button>
-      </Link>
-    </div>
-</div>
-{/* SLider Component */}
-        <BestSellerSlider handleAddToSet={handleAddToSet} handleIncrement={handleIncrement} handleDecrement={handleDecrement} />
-     
-        </div>
-        <div className="w-full fixed bottom-0 z-[9999] ">
-        <div onClick={handlePopup} className={`w-full select-none border border-solid cursor-pointer py-[5px] ${isDarkMode ? 'bg-zinc-800 ' : 'bg-neutral-900'} ${clicked ? 'border-white' : 'border-none'}  justify-center items-center gap-[5px] inline-flex`}>
+  
+      <div className="w-full fixed bottom-0 z-[9999] ">
+        <div onClick={handlePopup} className={`w-full select-none cursor-pointer py-[5px] ${isDarkMode ? 'bg-zinc-800 ' : 'bg-neutral-900'}  justify-center items-center gap-[5px] inline-flex`}>
     <div className={`text-center ${isDarkMode ? 'text-white' : 'text-white'} text-base font-medium leading-tight`}>Your Cart</div>
 
     <TopBottomArrow className={!clicked ? 'rotate-[180deg]' : 'rotate-0'} color={isDarkMode ? 'white' : 'white'}/>
@@ -222,7 +157,7 @@ const handleRemoveItem = (index) => {
     }`}
   >
     <button
-      onClick={()=> handleClick(1)}
+      onClick={()=> handleClickButton(1)}
       className={`flex justify-center items-center px-2.5 lg:px-5 py-2.5 rounded-[var(--md,8px)]  text-[14px] lg:text-lg not-italic font-normal leading-[normal]   ${
         button === 1 && `${isDarkMode ? 'bg-white text-[#454547]' : 'bg-primary text-white'}`
       } ${button === 2 && `bg-transparent  ${isDarkMode ? 'text-[#454547]' : 'text-[#28282A66]'}`} `}
@@ -230,7 +165,7 @@ const handleRemoveItem = (index) => {
       Subscribe & Save
     </button>
     <button
-      onClick={()=> handleClick(2)}
+      onClick={()=> handleClickButton(2)}
       className={` flex justify-center rounded-[var(--md,8px)] items-center px-2.5 lg:px-5 py-2.5 text-[14px] lg:text-lg not-italic leading-[normal] font-normal   ${
         button === 2 && `${isDarkMode ? 'bg-white text-[#454547]' : 'bg-primary text-white'}`
       } ${button === 1 && `bg-transparent  ${isDarkMode ? 'text-[#454547]' : 'text-[#28282A66]'}`}`}
@@ -311,7 +246,7 @@ const handleRemoveItem = (index) => {
     }`}
   >
     <button
-      onClick={()=> handleClick(1)}
+      onClick={()=> handleClickButton(1)}
       className={`flex justify-center items-center px-2.5 lg:px-5 py-2.5 rounded-[var(--md,8px)]  text-[14px] lg:text-lg not-italic font-normal leading-[normal]   ${
         button === 1 && `${isDarkMode ? 'bg-white text-[#454547]' : 'bg-primary text-white'}`
       } ${button === 2 && `bg-transparent  ${isDarkMode ? 'text-[#454547]' : 'text-[#28282A66]'}`} `}
@@ -319,7 +254,7 @@ const handleRemoveItem = (index) => {
       Subscribe & Save
     </button>
     <button
-      onClick={()=> handleClick(2)}
+      onClick={()=> handleClickButton(2)}
       className={` flex justify-center rounded-[var(--md,8px)] items-center px-2.5 lg:px-5 py-2.5 text-[14px] lg:text-lg not-italic leading-[normal] font-normal   ${
         button === 2 && `${isDarkMode ? 'bg-white text-[#454547]' : 'bg-primary text-white'}`
       } ${button === 1 && `bg-transparent  ${isDarkMode ? 'text-[#454547]' : 'text-[#28282A66]'}`}`}
@@ -362,8 +297,7 @@ const handleRemoveItem = (index) => {
 }
      
           </div>
-    </section>
-  )
-}
+  );
+};
 
-export default BestSeller
+export default BundleBox;

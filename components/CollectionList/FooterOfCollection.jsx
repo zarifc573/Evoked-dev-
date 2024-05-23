@@ -8,14 +8,14 @@ import light from '@/public/assets/lightmode.png'
 import Image from 'next/image';
 
 
-const FooterDiscovery = () => {
+const FooterOfCollection = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
  
   return (
-    <section className={`lg:pb-[50px] lg:pt-[0px]  pt-[30px] pb-[50px]  bg-[#171717]`}>
+    <section className={`lg:pb-[100px] lg:pt-[0px]  pt-[30px] pb-[50px]  bg-[#171717]`}>
       <div className="lg:max-w-container w-[90%] mx-auto">
         <div className="">
-        <div className={`2xl:w-[1398px]  mx-auto h-[1px]  ${isDarkMode ? 'bg-white' : 'bg-primary'}`}>
+        <div className={`2xl:w-[1398px]  mx-auto h-[1px] ${isDarkMode ? 'bg-white' : 'bg-primary'}`}>
         </div>
         <div className="flex 2xl:w-[1398px] mx-auto lg:flex-row flex-col items-center justify-between pt-[15px] lg:pt-[20px]">
 
@@ -56,4 +56,4 @@ const FooterDiscovery = () => {
   )
 }
 
-export default FooterDiscovery
+export default FooterOfCollection
