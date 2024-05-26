@@ -158,7 +158,7 @@ const handleRemoveItem = (index) => {
 
   return (
     <section className={isDarkMode ? 'bg-primary' : 'bg-white'}>
-        <div className="lg:w-[95%] w-[90%] mx-auto pt-[100px]">
+        <div className="lg:w-[95%] w-[90%] mx-auto lg:pt-[100px] pt-[30px]">
         <div className="lg:justify-between lg:items-center items-start flex lg:flex-row flex-col mb-[50px]">
     <div className="flex-col justify-start items-start lg:gap-2.5 inline-flex">
         <div className={` ${isDarkMode ? 'text-white' : 'text-zinc-800 '} 2xl:text-5xl lg:text-[38px] text-[20px] font-bold leading-[72px]`}>Best-sellers</div>

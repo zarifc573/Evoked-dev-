@@ -5,9 +5,9 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { useDarkMode } from "@/utils/DarkModeContext";
 import { AddToSet, Checked, Dropdown, Star12 } from "@/utils/Helpers";
 import { useGlobal } from "@/utils/GlobalContext";
-import { Links } from "@/utils/data";
+import { Links, suggestedProducts } from "@/utils/data";
 import Link from "next/link";
-const Category = ({ category, handleAddToSet, handleIncrement, handleDecrement }) => {
+const SuggestedProduct = ({ category, handleAddToSet, handleIncrement, handleDecrement }) => {
   const { isDarkMode } = useDarkMode();
   const { quantities, setQuantities } = useGlobal();
 
@@ -45,7 +45,7 @@ const Category = ({ category, handleAddToSet, handleIncrement, handleDecrement }
   };
   return (
     <div className="flex items-start lg:justify-start justify-center  gap-10 flex-wrap">
-      {category.map((item, index) => (
+      {suggestedProducts.map((item, index) => (
         <div
           key={item.id}
           className={`flex px-5 2xl:w-[23%] lg:w-[22%] xl:w-[22%] w-[90%]  flex-col select-none items-center gap-[25px]  rounded-[var(--md,8px)]  border ${isDarkMode
@@ -208,4 +208,4 @@ const Category = ({ category, handleAddToSet, handleIncrement, handleDecrement }
   );
 };
 
-export default Category;
+export default SuggestedProduct;

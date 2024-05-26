@@ -136,7 +136,12 @@ setButtonStates((prevStates) => {
   Array.from({ length: quantity }).map((_, boxIndex) => (
     <div key={`${index}${boxIndex}`} className={`2xl:w-[150px] 2xl:h-[150px] lg:w-[100px] lg:h-[100px] md:w-[100px] md:h-[100px] w-[60px] h-[60px] border border-solid relative ${isDarkMode ? 'bg-primary border-[color:var(--black,#171717)] shadow-[2px_2px_0px_0px_rgba(255,255,255,0.70)]' : 'bg-white border-[color:var(--black,#171717)] shadow-[2px_2px_0px_0px_#171717]'}`}>
       {/* Render the image here */}
-      <Image className='2xl:w-[70px] 2xl:h-[108.387px]  md:w-[50px] md:h-[76px] w-[25px] h-[40px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]' src={Links[index].link} alt="Selected Item" />
+      <Image key={`${index}-${boxIndex}`} className='2xl:w-[70px] 2xl:h-[108.387px]  md:w-[50px] md:h-[76px] w-[25px] h-[40px] absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'   src={
+          selectedButton === 1 ? Links[index]?.link :
+          selectedButton === 2 ? MenProducts[index]?.link :
+          selectedButton === 3 ? WomenProducts[index]?.link :
+          selectedButton === 4 ? UnisexProducts[index]?.link : ''
+        } alt="Selected Item" />
       <button onClick={() => handleRemoveItem(index)} className="absolute lg:top-[-10px] top-[-6px] right-[-8px] lg:right-[-11px]">
         <Remove className={`lg:w-auto lg:h-auto  md:top-[-7px] md:right-[-8px] h-[13px] w-[13px]`} rect={isDarkMode ? 'white' : '#171717'} color={isDarkMode ? '#171717' : 'white'} />
       </button>

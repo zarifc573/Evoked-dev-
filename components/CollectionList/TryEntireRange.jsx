@@ -8,7 +8,7 @@ import { useDarkMode } from '@/utils/DarkModeContext';
 const TryEntireRange = () => {
     const { isDarkMode } = useDarkMode();
   return (
-    <div className={`pt-[120px] pb-[100px] ${isDarkMode ? 'bg-primary' : 'bg-white'}`}>
+    <div className={`lg:pt-[120px] lg:pb-[100px] py-[30px] ${isDarkMode ? 'bg-primary' : 'bg-white'}`}>
         <div className="2xl:max-w-container lg:w-[90%] w-full mx-auto lg:py-[92px] py-[45px] lg:pl-[100px] pl-[30px]  bg-collectionImage bg-cover bg-center after:bg-gradient-to-l after:from-neutral-900 after:to-neutral-900 after:absolute after:w-full after:h-full after:content-[''] after:z-[-10] after:top-0 after:left-0 after:opacity-[0.9] z-10 relative lg:rounded-lg lg:after:rounded-lg">
         <div className="lg:w-[634px] h-[369px] flex-col justify-start items-start gap-10 inline-flex">
     <div className="flex-col justify-start items-start gap-5 flex">

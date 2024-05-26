@@ -13,7 +13,7 @@ const PaginatedItems = ({ items, itemsPerPage, handleAddToSet, handleIncrement, 
   const endOffset = itemOffset + itemsPerPage;
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);
-
+console.log(currentItems)
   const handlePageClick = (event) => {
     const newOffset = event.selected * itemsPerPage;
     setItemOffset(newOffset);
@@ -23,7 +23,7 @@ const PaginatedItems = ({ items, itemsPerPage, handleAddToSet, handleIncrement, 
     <>
       <Category
         category={currentItems}
-        handleAddToSet={handleAddToSet}
+        handleAddToSet={(index, item) => handleAddToSet(index, item)}
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
       />

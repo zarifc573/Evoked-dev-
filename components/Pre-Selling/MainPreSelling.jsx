@@ -28,7 +28,7 @@ const MainPreSelling = () => {
                 <div className="text-white text-[16px] lg:text-[22px] font-semibold font-['Josefin Sans'] uppercase">BUILD YOUR OWN SET</div>
                 <Image src={arrowRight} alt='Arrow'/>
             </div>
-            <div className="lg:w-[290px] lg:text-left text-white text-[12px] lg:text-sm font-normal font-['Josefin Sans'] leading-[16.80px]">Pick and mix 100 ml designer-like scents from our range to make your own perfume set.</div>
+            <div className="lg:w-[290px] text-left text-white text-[12px] lg:text-sm font-normal font-['Josefin Sans'] leading-[16.80px]">Pick and mix 100 ml designer-like scents from our range to make your own perfume set.</div>
         </button>
       </Link>
         <div className="text-zinc-800 text-[16px] lg:text-[22px] font-semibold font-['Josefin Sans'] uppercase">OR</div>
@@ -38,7 +38,7 @@ const MainPreSelling = () => {
                 <div className="text-zinc-800 text-[16px] lg:text-[22px] font-semibold font-['Josefin Sans'] uppercase">TRY OUR discoverY SET</div>
                 <Image src={arrowRightBlack} alt='Arrow'/>
             </div>
-            <div className="lg:w-[290px] lg:text-left text-zinc-700 text-[12px] lg:text-sm font-normal font-['Josefin Sans'] leading-[16.80px]">Get 5 ml samples of our entire collection. Discover iconic designer-like scents that match your vibe.</div>
+            <div className="lg:w-[290px] text-left text-zinc-700 text-[12px] lg:text-sm font-normal font-['Josefin Sans'] leading-[16.80px]">Get 5 ml samples of our entire collection. Discover iconic designer-like scents that match your vibe.</div>
         </button>
      </Link>
     </div>

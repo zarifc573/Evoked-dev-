@@ -217,6 +217,24 @@ const Checked = ({ color, className}) => {
       
     )
   }
+const DisCover = ({ color, className}) => {
+    return (
+      <svg className={className} xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+      <path d="M11.9998 20.6598C7.48784 20.6598 3.83984 17.0118 3.83984 12.4998C3.83984 7.98784 7.48784 4.33984 11.9998 4.33984C16.5118 4.33984 20.1598 7.98784 20.1598 12.4998C20.1598 17.0118 16.5118 20.6598 11.9998 20.6598ZM11.9998 5.29984C8.01584 5.29984 4.79984 8.51584 4.79984 12.4998C4.79984 16.4838 8.01584 19.6998 11.9998 19.6998C15.9838 19.6998 19.1998 16.4838 19.1998 12.4998C19.1998 8.51584 15.9838 5.29984 11.9998 5.29984Z" fill={color}/>
+      <path d="M11.8561 17.1562L11.1841 16.4842L15.1681 12.5002L11.1841 8.51624L11.8561 7.84424L16.5121 12.5002L11.8561 17.1562Z" fill={color}/>
+      <path d="M7.68018 12.02H15.8402V12.98H7.68018V12.02Z" fill={color}/>
+    </svg>
+      
+    )
+  }
+const ProductStar = ({ color, className}) => {
+    return (
+      <svg className={className} xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
+      <path d="M7.5 0L9.18386 5.18237H14.6329L10.2245 8.38525L11.9084 13.5676L7.5 10.3647L3.09161 13.5676L4.77547 8.38525L0.367076 5.18237H5.81614L7.5 0Z" fill={color}/>
+    </svg>
+      
+    )
+  }
   
   
-export { DownArrow, Box1, Box2, DownArrow2, Minus, Plus, ThreeDot, Star1, DownArrow1, Star12, Next, Prev, Dropdown, Remove, Unselect, Select, Car, PerfumeSpray, Piggy, AddToSet, TopBottomArrow, Checked }
+export { DownArrow, Box1, Box2, DownArrow2, Minus, Plus, ThreeDot, Star1, DownArrow1, Star12, Next, Prev, Dropdown, Remove, Unselect, Select, Car, PerfumeSpray, Piggy, AddToSet, TopBottomArrow, Checked, DisCover, ProductStar }

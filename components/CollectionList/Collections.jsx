@@ -4,7 +4,7 @@ import searchIcon from "@/public/assets/ic_outline-search.svg";
 import ArrowSearch from "@/public/assets/ArrowSearch.svg";
 import Image from "next/image";
 import { useDarkMode } from "@/utils/DarkModeContext";
-import { Links, MenProducts, UnisexProducts, WomenProducts } from "@/utils/data";
+import { AllProducts, Links, MenProducts, UnisexProducts, WomenProducts } from "@/utils/data";
 import { useGlobal } from "@/utils/GlobalContext";
 import PaginatedItems from "./CollectionParts/Pagination";
 import ToggleButton from "./CollectionParts/ToggleButton";
@@ -26,7 +26,7 @@ const Collections = () => {
   const getProductsByCategory = (selectedButton) => {
     switch (selectedButton) {
       case 1:
-        return Links;
+        return AllProducts;
       case 2:
         return MenProducts;
       case 3:
@@ -79,25 +79,23 @@ const Collections = () => {
     setSelectedIndex(-1);
   };
   const handleAddToSet = (index, item) => {
-  setClicked(true);
-       setQuantities((prevQuantities) => {
-        const newQuantities = [...prevQuantities];
-        const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); // Calculate total items
+    setClicked(true); // Assuming this is for some UI state change
     
-        // Check if button is 1 or 2 to determine the maximum limit
-        const maxLimit = button === 1 ? 3 : 10;
-    
-        // Check if total items is less than the maximum limit before incrementing quantity
-        if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
-          newQuantities[index] += 1;
-        } else {
-          // If the maximum limit is reached, return early to prevent further execution
-          // alert("You can only add a maximum of 3 items to your set.");
-          return prevQuantities;
-        }
-        return newQuantities;
-      });
-};
+    // Example logic to add item to set
+    setQuantities((prevQuantities) => {
+      const newQuantities = [...prevQuantities];
+      const maxLimit = button === 1 ? 3 : 10; // Adjust based on your logic for max items in set
+      
+      if (newQuantities[index] < maxLimit) {
+        newQuantities[index] += 1; // Increment quantity for the selected item
+      } else {
+        // Handle max limit reached scenario
+        // alert("You can only add a maximum of 3 items to your set.");
+      }
+      
+      return newQuantities;
+    });
+  };
     const handleIncrement = (index) => {
       setQuantities((prevQuantities) => {
         const newQuantities = [...prevQuantities];
