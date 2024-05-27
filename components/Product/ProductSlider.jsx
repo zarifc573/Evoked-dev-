@@ -50,12 +50,12 @@ const ProductSlider = () => {
     return (
         <>
         <div className='pb-[50px] cursor-pointer'>
-    <span className="text-zinc-800 text-opacity-[0.7] text-base font-medium font-['Josefin Sans']">
+    <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-opacity-[0.7] text-base font-medium font-['Josefin Sans']`}>
         <Link href='/'>Home {' >'}</Link>
         <Link href='/collections'>{` Perfumes > `}</Link>
         <span>{gender + ' > '}</span>
     </span>
-    <span className="text-zinc-800 text-base font-semibold font-['Josefin Sans']">{scent}</span>
+    <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-base font-semibold font-['Josefin Sans']`}>{scent}</span>
 </div>
             <Swiper
                 style={{
@@ -66,14 +66,14 @@ const ProductSlider = () => {
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2 select-none h-[506px] relative mb-[20px] border border-solid border-gray-500 py-[10px] rounded-[8px]"
+                className="mySwiper2 select-none w-full lg:h-[400px] 2xl:h-[506px] relative mb-[20px] border border-solid border-gray-500 py-[10px] rounded-[8px]"
             >
                 {Data.map((item, index) => (
                     <SwiperSlide key={item.id} className='flex justify-center items-center '>
-                          <div className={` px-2.5 py-[5px] absolute top-[20px] left-[20px] rounded border  justify-center items-center gap-2.5 inline-flex ${isDarkMode ? "border-white" : "border-neutral-900 "}`}>
+                          <div className={` px-2.5 py-[5px] absolute 2xl:top-[20px] top-[10px] left-[20px] rounded border  justify-center items-center gap-2.5 inline-flex ${isDarkMode ? "border-white" : "border-neutral-900 "}`}>
               <p className={`uppercase text-sm font-normal ${isDarkMode ? "text-white" : "text-zinc-800 "}`}>{item.gender}</p>
             </div>
-                        <Image className='w-[400px] h-[300px] object-contain' src={item.link} alt='Product' />
+                        <Image className='2xl:w-[400px] 2xl:h-[300px] lg:w-[300px] lg:h-[200px] object-contain' src={item.link} alt='Product' />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -88,7 +88,7 @@ const ProductSlider = () => {
             >
                 {Data.map((item, index) => (
                     <SwiperSlide className='border border-solid border-gray-500 py-[10px] rounded-[8px]' key={item.id}>
-                        <Image className='w-[100px] h-[100px] object-contain mx-auto' src={item.link} alt='Product' />
+                        <Image className='2xl:w-[100px] 2xl:h-[100px] lg:w-[70px] lg:h-[70px] object-contain mx-auto' src={item.link} alt='Product' />
                     </SwiperSlide>
                 ))}
             </Swiper>

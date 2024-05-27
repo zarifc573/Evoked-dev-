@@ -34,7 +34,9 @@ const ProductDiscover = () => {
               </button>
               </Link>
                 </div>
-                    <Image className=' lg:w-[55%] w-full' src={mission} alt='Image'/>
+                <div className=" 2xl:w-[55%] lg:w-[50%] w-full">
+                    <Image className='' src={mission} alt='Image'/>
+                </div>
             </div>
             </div>
         </div>

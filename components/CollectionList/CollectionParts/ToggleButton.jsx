@@ -12,10 +12,10 @@ const ToggleButton = ({ handleClick, selected, text }) => {
         className="justify-start cursor-pointer items-start lg:gap-2.5 gap-[5px] inline-flex"
       >
         {selected  ? (
-          <Checked color={isDarkMode ? "white" : "black"} />
+          <Checked  color={isDarkMode ? "white" : "black"} />
         ) : (
           <div
-            className={`lg:w-6 lg:h-6 w-[18px] h-[18px] lg:mt-0 mt-[3px] relative border ${
+            className={`lg:w-6 lg:h-6 w-[18px] h-[18px]  relative border ${
               isDarkMode ? "border-white" : "border-[#28282AB2]"
             }  rounded-[50%]`}
           />

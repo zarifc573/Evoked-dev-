@@ -78,38 +78,45 @@ const Collections = () => {
   const handleMouseLeave = () => {
     setSelectedIndex(-1);
   };
-  const handleAddToSet = (index, item) => {
-    setClicked(true); // Assuming this is for some UI state change
-    
-    // Example logic to add item to set
+  const handleAddToSet = (index) => {
     setQuantities((prevQuantities) => {
       const newQuantities = [...prevQuantities];
-      const maxLimit = button === 1 ? 3 : 10; // Adjust based on your logic for max items in set
-      
-      if (newQuantities[index] < maxLimit) {
-        newQuantities[index] += 1; // Increment quantity for the selected item
+      const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); // Calculate total items
+  
+      // Check if button is 1 or 2 to determine the maximum limit
+      const maxLimit = button === 1 ? 3 : 10;
+  
+      // Check if total items is less than the maximum limit before incrementing quantity
+      if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
+        newQuantities[index] += 1;
       } else {
-        // Handle max limit reached scenario
+        // If the maximum limit is reached, return early to prevent further execution
         // alert("You can only add a maximum of 3 items to your set.");
+        return prevQuantities;
       }
-      
+      return newQuantities;
+    });
+    
+  };
+  const handleIncrement = (index) => {
+    setQuantities((prevQuantities) => {
+      const newQuantities = [...prevQuantities];
+      const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); // Calculate total items
+  
+      // Check if button is 1 or 2 to determine the maximum limit
+      const maxLimit = button === 1 ? 3 : 10;
+  
+      // Check if total items is less than the maximum limit before incrementing quantity
+      if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
+        newQuantities[index] += 1;
+      } else {
+        // If the maximum limit is reached, return early to prevent further execution
+        // alert("You can only add a maximum of 3 items to your set.");
+        return prevQuantities;
+      }
       return newQuantities;
     });
   };
-    const handleIncrement = (index) => {
-      setQuantities((prevQuantities) => {
-        const newQuantities = [...prevQuantities];
-        const totalItems = newQuantities.reduce((acc, curr) => acc + curr, 0); 
-        const maxLimit = button === 1 ? 3 : 10;
-    
-        if (totalItems < maxLimit && newQuantities[index] < maxLimit) {
-          newQuantities[index] += 1;
-        } else {
-          return prevQuantities;
-        }
-        return newQuantities;
-      });
-    };
    const handleDecrement = (index) => {
 setButtonStates(prevStates => {
   const newButtonStates = [...prevStates];

@@ -35,7 +35,7 @@ const Set = () => {
         <section>
         <div className={`overflow-x-hidden ${isDarkMode ? 'bg-[#171717] duration-300' : 'bg-[#F4F4F4] duration-300'}`}>
       <div className={``}>
-      <div className='2xl:max-w-container lg:w-[100%] w-[100%] mx-auto flex 2xl:flex-row flex-col lg:flex-col  items-start lg:justify-center lg:items-center 2xl:items-start justify-between lg:gap-x-[70px] '>
+      <div className='2xl:max-w-container lg:w-[90%] w-[100%] mx-auto flex 2xl:flex-row flex-col lg:flex-col  items-start lg:justify-center lg:items-center 2xl:items-start justify-between lg:gap-x-[70px] '>
           <div className="lg:py-[60px] py-[30px] w-[90%] 2xl:w-[50%] lg:w-[90%] px-0  mx-auto lg:mx-auto ">
 
                     <Swiper

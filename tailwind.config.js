@@ -27,9 +27,9 @@ module.exports = {
         'preSelling': 'url(../public/assets/preselling.png)',
         
       },
-      fontFamily:{
-        primary: ['var(--font-josefin)'],
-      },
+      // fontFamily:{
+      //   primary: ['var(--font-josefin)'],
+      // },
     },
   },
   plugins: [],
