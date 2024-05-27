@@ -1,8 +1,7 @@
 "use client"
 
 import { useDarkMode } from '@/utils/DarkModeContext';
-import React, { useState } from 'react'
-import footerLogo from '@/public/assets/footerIcon.svg'
+import React from 'react'
 import whiteLogo from '@/public/assets/whiteLogo.svg'
 import dark from '@/public/assets/darkmode.png'
 import light from '@/public/assets/lightmode.png'

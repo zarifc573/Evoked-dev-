@@ -10,12 +10,12 @@ const PerfumeListWrapper = () => {
   return (
     <div>
         <DarkModeProvider>
-          <GlobalProvider>
           <NavbarCollection/>
+          <GlobalProvider>
           <Collections/>
+          </GlobalProvider>
           <TryEntireRange/>
             <FooterOfCollection/>
-          </GlobalProvider>
         </DarkModeProvider>
     </div>
   )

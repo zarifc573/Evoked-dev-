@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Checked } from "@/utils/Helpers";
 import { useDarkMode } from "@/utils/DarkModeContext";
 import { Links, MenProducts, UnisexProducts, WomenProducts } from "@/utils/data";
 import { useGlobal } from "@/utils/GlobalContext";

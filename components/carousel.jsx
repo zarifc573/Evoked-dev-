@@ -4,7 +4,6 @@ import { Love } from '@/utils/Love';
 import Slider from '@/utils/Slider'
 import Star from '@/utils/Star';
 import React from 'react'
-import "slick-carousel/slick/slick.css";
 const Carousel = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     return (

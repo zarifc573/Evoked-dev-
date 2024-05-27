@@ -2,13 +2,7 @@
 
 import { useDarkMode } from '@/utils/DarkModeContext';
 import React from 'react'
-import Image from 'next/image';
-import reasonLight from '@/public/assets/reasonLight.png'
-import reasonDark from '@/public/assets/reasonDark.png'
-import perfume from '@/public/assets/perfume.png'
-import spray from '@/public/assets/spray.png'
-import star from '@/public/assets/evokeStar.svg'
-import { SelfConfidence, SaveMoney, TwentyFour, EcoFriendly, Compostable, Perfume, SelfConfidenceDark, TwentyFourDark, SaveMoneyDark } from '@/utils/ThreeReasons';
+import { SelfConfidence, SaveMoney, TwentyFour, SelfConfidenceDark, TwentyFourDark, SaveMoneyDark } from '@/utils/ThreeReasons';
 const EvokedBrand = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
