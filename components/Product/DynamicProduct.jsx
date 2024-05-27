@@ -85,8 +85,8 @@ const DynamicProduct = () => {
     const { link, gender, scent } = productData;
   return (
     <section className={`overflow-x-hidden ${isDarkMode ? 'bg-primary' : 'bg-white'}`}>
-<div className="2xl:max-w-container w-[90%] mx-auto">
-    <div className="flex lg:flex-row flex-col items-start justify-center 2xl:gap-[120px] lg:gap-[60px] w-full lg:px-[60px] pt-[50px]">
+<div className="2xl:max-w-container w-[92%] mx-auto">
+    <div className="flex lg:flex-row flex-col items-start justify-center 2xl:gap-[120px] lg:gap-[60px] gap-y-[50px] w-full lg:px-[60px] pt-[50px]">
 <div className="lg:w-[40%] w-full">
 <ProductSlider/>
 </div>
@@ -99,7 +99,7 @@ const DynamicProduct = () => {
         <div className="lg:py-[40px] ">
        
 <div className={`w-full`}>
-          <div className={`flex w-full cursor-auto flex-col items-start gap-5 lg:p-0 p-5 rounded-md  2xl:mt-[30px] `}>
+          <div className={`flex w-full cursor-auto flex-col items-start gap-5 lg:p-0 2xl:p-5 rounded-md  2xl:mt-[30px] `}>
                 <div className="flex w-full flex-col gap-y-[20px]">
                 <button
         onClick={() => handleButtonClick(1)}
@@ -119,13 +119,13 @@ const DynamicProduct = () => {
             <div className={`flex flex-col w-full justify-center mt-[20px] items-start  border border-solid  ${isDarkMode ? 'border-white bg-brand' : 'border-black bg-white'}`}>
 <div className="  justify-between items-start w-full flex">
     <div onClick={() => handleButtonClickForBottle(1)} className={`grow shrink basis-0 p-2.5 border-r ${isDarkMode ? 'border-white' : 'border-black'}  border-b ${selectedButtonForBottle === 1 ? isDarkMode ? 'border-white bg-white' : 'border-black bg-neutral-900' : 'border-black bg-transparent'} justify-center items-start gap-2.5 flex`}>
-        <div className={`${selectedButtonForBottle === 1 ? isDarkMode ? 'text-zinc-800' : 'text-white' : isDarkMode ? 'text-white' : 'text-zinc-800'}  text-base font-normal font-['Josefin Sans']`}>1 Bottle</div>
+        <div className={`${selectedButtonForBottle === 1 ? isDarkMode ? 'text-zinc-800' : 'text-white' : isDarkMode ? 'text-white' : 'text-zinc-800'}  text-[14px] lg:text-base font-normal font-['Josefin Sans']`}>1 Bottle</div>
     </div>
     <div onClick={() => handleButtonClickForBottle(2)} className={`grow shrink basis-0 p-2.5 border-r ${isDarkMode ? 'border-white' : 'border-black'}  border-b ${selectedButtonForBottle === 2 ? isDarkMode ? 'border-white bg-white' : 'border-black bg-neutral-900' : 'border-black bg-transparent'} justify-center items-start gap-2.5 flex`}>
-        <div className={`text-center ${selectedButtonForBottle === 2 ? isDarkMode ? 'text-zinc-800' : 'text-white' : isDarkMode ? 'text-white' : 'text-zinc-800'} text-base font-normal font-['Josefin Sans']`}>2 Bottles</div>
+        <div className={`text-center ${selectedButtonForBottle === 2 ? isDarkMode ? 'text-zinc-800' : 'text-white' : isDarkMode ? 'text-white' : 'text-zinc-800'} text-[14px] lg:text-base font-normal font-['Josefin Sans']`}>2 Bottles</div>
     </div>
     <div onClick={() => handleButtonClickForBottle(3)} className={`grow shrink basis-0 p-2.5 ${isDarkMode ? 'border-white' : 'border-black'}  border-b ${selectedButtonForBottle === 3 ? isDarkMode ? 'border-white bg-white' : 'border-black bg-neutral-900' : 'border-black bg-transparent'} justify-center items-start gap-2.5 flex`}>
-        <div className={`text-center ${selectedButtonForBottle === 3 ? isDarkMode ? 'text-zinc-800' : 'text-white' : isDarkMode ? 'text-white' : 'text-zinc-800'} text-base font-normal font-['Josefin Sans']`}>3 Bottles</div>
+        <div className={`text-center ${selectedButtonForBottle === 3 ? isDarkMode ? 'text-zinc-800' : 'text-white' : isDarkMode ? 'text-white' : 'text-zinc-800'} text-[14px] lg:text-base font-normal font-['Josefin Sans']`}>3 Bottles</div>
     </div>
 </div>
             <div className={`flex flex-col cursor-auto justify-center items-start gap-[15px] lg:gap-[30px] self-stretch p-[20px] lg:px-[50px] lg:py-[20px] rounded-[var(--md,8px)]`}>
@@ -143,13 +143,13 @@ const DynamicProduct = () => {
             </div>
             <div className=" flex-col justify-start items-start gap-[15px] flex">
     <span className={`${isDarkMode ? 'text-white' : 'text-neutral-900'} text-base font-normal font-['Josefin Sans']`}>What’s included:</span>
-    <div className="flex-col justify-start items-start gap-2.5 flex">
+    <div className="flex-col justify-start text-left items-start gap-2.5 flex">
         <span className={`${isDarkMode ? 'text-white' : 'text-neutral-900'} text-sm font-normal font-['Josefin Sans']`}>{`${selectedButtonForBottle === 1 ? 1 : selectedButtonForBottle === 2 ? 2 : 3} x 100ml perfumes (lasts 4 months)`}</span>
         <span className={`${isDarkMode ? 'text-white' : 'text-neutral-900'} text-sm font-normal font-['Josefin Sans']`}>{`${selectedButtonForBottle === 1 ? 1 : selectedButtonForBottle === 2 ? 2 : 3} x 5ml samples (free compliments)`}</span>
         <span className={`${isDarkMode ? 'text-white' : 'text-neutral-900'} text-sm font-normal font-['Josefin Sans']`}>£10 store credit towards future orders</span>
     </div>
 </div>
-        <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} w-full text-opacity-[0.7] flex justify-end text-base font-light font-['Josefin Sans']`}>{`${selectedButtonForBottle === 1 ? '£0.04' : selectedButtonForBottle === 2 ? '£0.03' : '£0.02'} per spray`}</span>
+        <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} w-full text-opacity-[0.7] flex justify-end text-[14px] lg:text-base font-light font-['Josefin Sans']`}>{`${selectedButtonForBottle === 1 ? '£0.04' : selectedButtonForBottle === 2 ? '£0.03' : '£0.02'} per spray`}</span>
       </div>
             </div>
             
@@ -173,7 +173,7 @@ const DynamicProduct = () => {
               </button>  
              {
                 selectedButton === 1 && 
-                ( <button className={`flex mt-[30px]  justify-between items-center px-[20px] lg:px-[30px] lg:py-[18px] py-[12px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#FFF] bg-white' : 'shadow-[4px_4px_0px_0px_#171717] border-white bg-primary'}`}>
+                ( <button className={`flex lg:mb-0 mb-[30px] lg:mt-[30px]  justify-between items-center px-[20px] lg:px-[30px] lg:py-[18px] py-[12px] rounded-[var(--md,8px)] border  border-solid ${isDarkMode ? 'border-[color:var(--black,#171717)] shadow-[4px_4px_0px_0px_#FFF] bg-white' : 'shadow-[4px_4px_0px_0px_#171717] border-white bg-primary'}`}>
                 <span className={` ${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[22px] not-italic font-bold leading-[120%]`}>SUBSCRIBE NOW</span>
              
                 <span className={`${isDarkMode ? 'text-[#28282A]' : 'text-white'} text-[16px] lg:text-[32px] not-italic font-bold leading-[120%] flex items-center`}>
@@ -233,13 +233,13 @@ cancel anytime</span>
 </div>
 </div>
 </div>
-<div className="pt-[100px] w-full">
-<div className="flex flex-col justify-start items-start gap-2.5 mb-[50px]">
-    <div className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-5xl font-bold leading-72px`}>Love {scent} ? Pair up to build your set.</div>
-    <div className="flex items-center gap-1">
-        <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-base font-normal leading-33px`}>Customers frequently mix </span>
-        <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-base font-bold leading-33px`}>{scent}</span>
-        <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-base font-normal leading-33px`}> with the perfumes below to make unique combinations...</span>
+<div className="lg:pt-[100px] pt-[0px] w-full">
+<div className="flex flex-col justify-start items-start gap-2.5 lg:mb-[50px] mb-[30px]">
+    <div className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} lg:text-5xl text-[26px] font-bold leading-72px`}>Love {scent} ? Pair up to build your set.</div>
+    <div className="flex flex-wrap items-center lg:gap-1">
+        <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-[12px] lg:text-base font-normal leading-33px`}>Customers frequently mix <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-[12px] lg:text-base font-bold leading-33px`}>{scent}</span> <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-[12px] lg:text-base font-normal leading-33px`}> with the perfumes below to make unique combinations...</span></span>
+        
+        
     </div>
 </div>
 

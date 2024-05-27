@@ -44,11 +44,11 @@ const SuggestedProduct = ({ handleAddToSet, handleIncrement, handleDecrement }) 
     handleDecrement(index, item);
   };
   return (
-    <div className="flex items-start  2xl:justify-center lg:justify-between lg:gap-[10px] 2xl:gap-10 flex-wrap">
+    <div className="flex items-start  2xl:justify-center lg:justify-between gap-[10px] lg:gap-[10px] 2xl:gap-10 flex-wrap">
       {suggestedProducts.map((item, index) => (
         <div
           key={item.id}
-          className={`flex px-5 2xl:w-[23%] lg:w-[23%] xl:w-[23%] w-[90%]  flex-col select-none items-center gap-[25px]  rounded-[var(--md,8px)]  border ${isDarkMode
+          className={`flex px-5 2xl:w-[23%] lg:w-[23%] xl:w-[23%] w-[100%]  flex-col select-none items-center gap-[25px]  rounded-[var(--md,8px)]  border ${isDarkMode
               ? "border-white"
               : "border-[color:var(--black,#171717)]"
             } border-solid `}
@@ -167,7 +167,7 @@ const SuggestedProduct = ({ handleAddToSet, handleIncrement, handleDecrement }) 
                 </div>
                 {/* Buy now button */}
                 <button
-                  className={`2xl:w-[220px] lg:w-[200px] flex $ mx-auto items-center justify-center gap-2.5  text-center text-[16px] lg:text-[18px] 2xl:text-2xl not-italic font-medium leading-[120%] px-5 py-[10px] rounded-[var(--sm,4px)]  mt-[25px] ${isDarkMode
+                  className={`2xl:w-[220px] w-[200px] flex $ mx-auto items-center justify-center gap-2.5  text-center text-[16px] lg:text-[18px] 2xl:text-2xl not-italic font-medium leading-[120%] px-5 py-[10px] rounded-[var(--sm,4px)]  mt-[25px] ${isDarkMode
                       ? "bg-white text-primary"
                       : "bg-primary text-white"
                     }`}
@@ -177,7 +177,7 @@ const SuggestedProduct = ({ handleAddToSet, handleIncrement, handleDecrement }) 
                 {quantities[index] === 0 ? (
                   <button
                     onClick={() => handleAddToSetClick(index, item)}
-                    className={`2xl:w-[220px] lg:w-[200px] mx-auto gap-3 flex items-center justify-center px-5 py-2 rounded border border-solid ${isDarkMode ? "bg-primary text-white" : "bg-transparent text-[#28282A] border-[#171717]"} text-[16px] lg:text-[18px] 2xl:text-2xl font-medium leading-[120%] mt-3`}
+                    className={`2xl:w-[220px] w-[200px] mx-auto gap-3 flex items-center justify-center px-5 py-2 rounded border border-solid ${isDarkMode ? "bg-primary text-white" : "bg-transparent text-[#28282A] border-[#171717]"} text-[16px] lg:text-[18px] 2xl:text-2xl font-medium leading-[120%] mt-3`}
                   >
                     Add To Set <AddToSet color={isDarkMode ? "white" : "#28282A"} rect={isDarkMode ? "#171717" : "white"} />
                   </button>

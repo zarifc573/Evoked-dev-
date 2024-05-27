@@ -28,7 +28,7 @@ const ProductDiscover = () => {
         </div>
     </div>
 </div>
-                    <Link href='/discovery-kit' className='inline-block' >
+                    <Link href='/discovery-kit' className='inline-block mr-auto' >
           <button className={`lg:mt-[30px] mt-[20px] uppercase lg:mx-0 mx-auto flex items-center gap-2.5 lg:px-[30px] lg:py-[18px] px-[20px] py-[12px] rounded-[var(--md,8px)] border border-solid  ${isDarkMode ? 'border-[#28282A] bg-white shadow-[4px_4px_0px_0px_#fff]' : 'border-white bg-[#171717] shadow-[4px_4px_0px_0px_#171717]'}`}>
             <span className={`2xl:text-[22px] lg:text-[16px] text-[16px] not-italic font-semibold leading-[normal] ${isDarkMode ? 'text-[#171717]' : 'text-white'}`}>TRY DISCOVERY KIT</span>
               </button>

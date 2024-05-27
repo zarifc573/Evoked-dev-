@@ -49,7 +49,7 @@ const ProductSlider = () => {
     console.log(searchParams.get('link'))
     return (
         <>
-        <div className='pb-[50px] cursor-pointer'>
+        <div className='lg:pb-[50px] cursor-pointer lg:pt-0 pt-[30px] pb-[30px]'>
     <span className={`${isDarkMode ? 'text-white' : 'text-zinc-800'} text-opacity-[0.7] text-base font-medium font-['Josefin Sans']`}>
         <Link href='/'>Home {' >'}</Link>
         <Link href='/collections'>{` Perfumes > `}</Link>
@@ -66,14 +66,14 @@ const ProductSlider = () => {
                 navigation={true}
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper2 select-none w-full lg:h-[400px] 2xl:h-[506px] relative mb-[20px] border border-solid border-gray-500 py-[10px] rounded-[8px]"
+                className="mySwiper2 select-none w-full h-[250px] lg:h-[400px] 2xl:h-[506px] relative mb-[20px] border border-solid border-gray-500 py-[10px] rounded-[8px]"
             >
                 {Data.map((item, index) => (
                     <SwiperSlide key={item.id} className='flex justify-center items-center '>
                           <div className={` px-2.5 py-[5px] absolute 2xl:top-[20px] top-[10px] left-[20px] rounded border  justify-center items-center gap-2.5 inline-flex ${isDarkMode ? "border-white" : "border-neutral-900 "}`}>
               <p className={`uppercase text-sm font-normal ${isDarkMode ? "text-white" : "text-zinc-800 "}`}>{item.gender}</p>
             </div>
-                        <Image className='2xl:w-[400px] 2xl:h-[300px] lg:w-[300px] lg:h-[200px] object-contain' src={item.link} alt='Product' />
+                        <Image className='2xl:w-[400px] 2xl:h-[300px] lg:w-[300px] lg:h-[200px] w-[220px] h-[120px] object-contain' src={item.link} alt='Product' />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -87,8 +87,8 @@ const ProductSlider = () => {
                 className="mySwiper select-none"
             >
                 {Data.map((item, index) => (
-                    <SwiperSlide className='border border-solid border-gray-500 py-[10px] rounded-[8px]' key={item.id}>
-                        <Image className='2xl:w-[100px] 2xl:h-[100px] lg:w-[70px] lg:h-[70px] object-contain mx-auto' src={item.link} alt='Product' />
+                    <SwiperSlide className='border border-solid border-gray-500 py-[10px] lg:rounded-[8px] rounded-[4px]' key={item.id}>
+                        <Image className='2xl:w-[100px] 2xl:h-[100px] lg:w-[70px] lg:h-[70px] w-[90px] h-[45px] object-contain mx-auto' src={item.link} alt='Product' />
                     </SwiperSlide>
                 ))}
             </Swiper>

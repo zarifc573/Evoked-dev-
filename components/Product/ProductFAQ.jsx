@@ -55,7 +55,7 @@ const ProductAccordion = () => {
         {title:'Details', desc:'Vitae congue eu consequat ac felis placerat vestibulum lectus mauris ultrices. Cursus sit amet dictum sit amet justo donec enim diam porttitor lacus luctus accumsan tortor posuere.'},
     ]
   return (
-    <section className={`${isDarkMode ? 'bg-[#171717]' : 'bg-white'} pt-[40px]`}>
+    <section className={`${isDarkMode ? 'bg-[#171717]' : 'bg-white'} lg:pt-[40px] pt-[30px]`}>
       <div className="2xl:max-w-container lg:w-[100%] w-[90%] mx-auto">
         <div className="pb-[50px] lg:block md:flex md:flex-col justify-center items-center">
 
