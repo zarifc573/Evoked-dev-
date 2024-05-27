@@ -15,10 +15,10 @@ const Review = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   
     const slides = [
-        {link:'video' , link2:  'videoDark'},
-        {link:'video' , link2:  'videoDark'},
-        {link:'video' , link2:  'videoDark'},
-        {link:'video' , link2:  'videoDark'},
+        {link:'video' , link2:  'videoDark', id:1},
+        {link:'video' , link2:  'videoDark', id:2},
+        {link:'video' , link2:  'videoDark', id:3},
+        {link:'video' , link2:  'videoDark', id:4},
   ]
   return (
     <section className={`${isDarkMode ? 'bg-primary' : 'bg-white'}`} >
@@ -85,8 +85,8 @@ const Review = () => {
           }}
         >
               {slides.map((index) => (
-               <SwiperSlide className={`border overflow-hidden select-none w-[508px] border-solid rounded-[12px] ${isDarkMode ? 'bg-[#171717] border-white border border-solid' : 'bg-white border-[#171717] border-solid'}`}>
-          <div className={``} key={index}>
+               <SwiperSlide key={index.id} className={`border overflow-hidden select-none w-[508px] border-solid rounded-[12px] ${isDarkMode ? 'bg-[#171717] border-white border border-solid' : 'bg-white border-[#171717] border-solid'}`}>
+          <div >
             <div className="flex flex-col  gap-10">
              <div className="select-none">
                 <Image src={transform} className="object-cover w-full" alt="Image" />

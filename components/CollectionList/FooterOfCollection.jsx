@@ -44,7 +44,7 @@ const FooterOfCollection = () => {
      
     </button>
             <div className="lg:block hidden">
-        <Image className='ml-[50px]' src={whiteLogo} alt='Logo-footer' /> 
+        <Image className='ml-[50px]' src={whiteLogo} alt='Logo' /> 
               </div>
             
             <span className={`fontVariant text-[14px] lg:mt-0 mt-[10px] lg:text-xl not-italic font-bold leading-[140%] text-white`}>Terms & Conditions | Privacy Policy</span>

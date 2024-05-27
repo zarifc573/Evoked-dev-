@@ -27,9 +27,9 @@ const SubscribeAndSave = () => {
 
     const [selectedTrend, setSelectedTrend] = useState(true);
     const data = [
-      { name:'1 Perfume', rate:'£40/2 months', rate50:'£20/2 months', shipping:'Free shipping & returns. ', includes:'What’s included:', firstPoint:'1 x 100ml perfume (lasts 2 months)', firstPoint50:'1 x 50ml perfume (lasts 2 months)', lastPoint:'1 x 5ml sample (free compliment)',spray:'£0.04 per spray' },
-      { name:'2 Perfumes', rate:'£60/4 months',rate50:'£30/4 months',discount50:'£40 ', discount:'£80 ', shipping:'Free shipping & returns. ', includes:'What’s included:', firstPoint:'2 x 100ml perfumes (lasts 4 months)',firstPoint50:'2 x 50ml perfume (lasts 4 months)', lastPoint:'2 x 5ml samples (free compliments)',spray:'£0.03 per spray', trend: selectedTrend, trendName: 'MOST POPULAR' },
-      { name:'3 Perfumes', rate:'£75/6 months', rate50:'£37/6 months',discount50:'£60 ',discount:'£120 ', shipping:'Free shipping & returns. ', includes:'What’s included:', firstPoint:'3 x 100ml perfumes (lasts 6 months)', firstPoint50:'1 x 50ml perfume (lasts 6 months)', lastPoint:'3 x 5ml samples (free compliments)',spray:'£0.02 per spray', trend: selectedTrend, trendName: 'BEST VALUE' }
+      { id: 1, name:'1 Perfume', rate:'£40/2 months', rate50:'£20/2 months', shipping:'Free shipping & returns. ', includes:'What’s included:', firstPoint:'1 x 100ml perfume (lasts 2 months)', firstPoint50:'1 x 50ml perfume (lasts 2 months)', lastPoint:'1 x 5ml sample (free compliment)',spray:'£0.04 per spray' },
+      { id: 2, name:'2 Perfumes', rate:'£60/4 months',rate50:'£30/4 months',discount50:'£40 ', discount:'£80 ', shipping:'Free shipping & returns. ', includes:'What’s included:', firstPoint:'2 x 100ml perfumes (lasts 4 months)',firstPoint50:'2 x 50ml perfume (lasts 4 months)', lastPoint:'2 x 5ml samples (free compliments)',spray:'£0.03 per spray', trend: selectedTrend, trendName: 'MOST POPULAR' },
+      { id: 3, name:'3 Perfumes', rate:'£75/6 months', rate50:'£37/6 months',discount50:'£60 ',discount:'£120 ', shipping:'Free shipping & returns. ', includes:'What’s included:', firstPoint:'3 x 100ml perfumes (lasts 6 months)', firstPoint50:'1 x 50ml perfume (lasts 6 months)', lastPoint:'3 x 5ml samples (free compliments)',spray:'£0.02 per spray', trend: selectedTrend, trendName: 'BEST VALUE' }
     ];
   
     // Ref to hold dropdown elements
@@ -44,7 +44,6 @@ const SubscribeAndSave = () => {
     const handleOptionChange = (option, index) => {
       setSelectedOptions(prevOptions => prevOptions.map((value, i) => i === index ? option : value));
       setIsOpen(prevOpen => prevOpen.map((value, i) => i === index ? false : value)); 
-      console.log(selectedOptions[index])
     };
   
     // Handle plan change
@@ -120,7 +119,7 @@ let discountedPrice = '';
                   data.map(({ name, rate, discount, shipping, includes, firstPoint, firstPoint50, lastPoint, spray, rate50,discount50, trend, trendName }, index) => (
                     <div onClick={() => handleOptionPlanChange(name, index)} className="lg:block hidden">
                       
-                    <div key={index} className={`flex 2xl:w-[450px] flex-col items-start px-5 py-[30px] ${trend ? 'rounded-t-[var(--md,8px)] ' : 'rounded-[var(--md,8px)] '} border   border-solid  ${selectedPlan === name ? `${isDarkMode ? 'bg-white border-white' : 'border-white bg-primary'}` : `${isDarkMode ? 'bg-[#454547] border-white' : ' bg-white border-[color:var(--black,#171717)]'}`} `}>
+                    <div key={index.id} className={`flex 2xl:w-[450px] flex-col items-start px-5 py-[30px] ${trend ? 'rounded-t-[var(--md,8px)] ' : 'rounded-[var(--md,8px)] '} border   border-solid  ${selectedPlan === name ? `${isDarkMode ? 'bg-white border-white' : 'border-white bg-primary'}` : `${isDarkMode ? 'bg-[#454547] border-white' : ' bg-white border-[color:var(--black,#171717)]'}`} `}>
                       <div className="flex items-center gap-5 lg:w-full">
                         <h6 className={` xxl:text-[38px] 2xl:w-auto  lg:w-[60%] 2xl:text-[30px] lg:text-[26px] not-italic font-semibold leading-[normal] ${selectedPlan === name ? `${isDarkMode ? ' text-primary' : 'text-white'}` : `${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}`}>{name}</h6>
                         {/* Select  */}
@@ -201,7 +200,7 @@ let discountedPrice = '';
                   <div className={`inline-flex justify-center items-center gap-x-[20px] mt-[30px] mb-[20px] py-[10px] border-b border-solid ${isDarkMode ? 'border-white' : 'border-primary'}`}>
                   { data.map(({ name }, index) => (
                      
-                    <div onClick={() => handleOptionPlanChange(name, index)} className={` text-center text-base not-italic font-normal leading-[normal] ${selectedPlan === name ? `${isDarkMode ? 'text-white' : 'text-primary'}` : `${isDarkMode ? 'text-[color:var(--brand2,#454547)]' : 'text-gray-500'}`}`}>
+                    <div key={index.id} onClick={() => handleOptionPlanChange(name, index)} className={` text-center text-base not-italic font-normal leading-[normal] ${selectedPlan === name ? `${isDarkMode ? 'text-white' : 'text-primary'}` : `${isDarkMode ? 'text-[color:var(--brand2,#454547)]' : 'text-gray-500'}`}`}>
                       {name}
                       </div>
                      
@@ -217,7 +216,7 @@ let discountedPrice = '';
                     
                       
                         selectedPlan === name &&
-                        <div onClick={() => handleOptionPlanChange(name, index)} className="">
+                        <div key={index.id} onClick={() => handleOptionPlanChange(name, index)} className="">
                           {
                             trend && (
                               <div className={`flex justify-between items-center self-stretch lg:p-5 py-[10px] px-[20px] rounded-t-[8px] border-t border-r border-l  border-solid ${isDarkMode ? 'border-white ' : 'border-[color:var(--black,#171717)] '} `}>
@@ -227,7 +226,7 @@ let discountedPrice = '';
                               </div>
                             )
                           }
-                        <div key={index} className={`flex flex-col items-start lg:px-5 lg:py-[30px] md:p-[20px] p-[10px] rounded-b-[8px]  border border-solid ${selectedPlan === '1 Perfume' && 'rounded-[8px]'}  ${selectedPlan === name ? `${isDarkMode ? 'bg-white border-white' : 'border-primary bg-primary'}` : `${isDarkMode ? 'bg-[#454547] border-white' : ' bg-white border-[color:var(--black,#171717)]'}`} `}>
+                        <div key={index.id} className={`flex flex-col items-start lg:px-5 lg:py-[30px] md:p-[20px] p-[10px] rounded-b-[8px]  border border-solid ${selectedPlan === '1 Perfume' && 'rounded-[8px]'}  ${selectedPlan === name ? `${isDarkMode ? 'bg-white border-white' : 'border-primary bg-primary'}` : `${isDarkMode ? 'bg-[#454547] border-white' : ' bg-white border-[color:var(--black,#171717)]'}`} `}>
                           <div className="flex items-center justify-between w-full">
                             {/* Select  */}
                             <span  className={`lg:text-[28px] text-[20px] not-italic font-normal leading-[normal]  ${selectedPlan === name ? `${isDarkMode ? 'text-primary' : 'text-white'}` : `${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}`}><span className={` lg:text-[22px] text-[12px] not-italic font-normal leading-[normal] line-through ${selectedPlan === name ? `${isDarkMode ? 'text-[#171717CC]' : 'text-[rgba(255,255,255,0.80)]'}` : `${isDarkMode ? 'text-[#FFFFFFCC]' : 'text-[#171717CC]'}`}`}>{selectedOptions[index] === "50ml" ? discount50 : discount}</span>{selectedOptions[index] === "50ml" ? rate50 : rate}</span>

@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Checked } from "@/utils/Helpers";
 import { useDarkMode } from "@/utils/DarkModeContext";
 import { Links, MenProducts, UnisexProducts, WomenProducts } from "@/utils/data";
 import { useGlobal } from "@/utils/GlobalContext";
@@ -141,7 +140,7 @@ setButtonStates((prevStates) => {
           selectedButton === 2 ? MenProducts[index]?.link :
           selectedButton === 3 ? WomenProducts[index]?.link :
           selectedButton === 4 ? UnisexProducts[index]?.link : ''
-        } alt="Selected Item" />
+        } alt="BundleImage-collection" />
       <button onClick={() => handleRemoveItem(index)} className="absolute lg:top-[-10px] top-[-6px] right-[-8px] lg:right-[-11px]">
         <Remove className={`lg:w-auto lg:h-auto  md:top-[-7px] md:right-[-8px] h-[13px] w-[13px]`} rect={isDarkMode ? 'white' : '#171717'} color={isDarkMode ? '#171717' : 'white'} />
       </button>

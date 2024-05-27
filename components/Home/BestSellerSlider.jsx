@@ -97,7 +97,7 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
         }}
       >
         {Links.map((item, index) => (
-          <SwiperSlide key={item.link}>
+          <SwiperSlide key={item.id}>
             <div
               className={`flex px-5 lg:w-[372px]  flex-col select-none items-center gap-[25px]  rounded-[var(--md,8px)]  border ${
                 isDarkMode
@@ -134,7 +134,6 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
                         gender: item.gender,
                         price: item.price,
                         link: item.link,
-                        name: item.name,
                         scent: item.scent,
                         smell: item.smell,
                         ingredients: item.ingredients,
@@ -145,8 +144,9 @@ const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) =>
                     key={item.id}
 >
                 <Image
+                priority 
                   src={item.link}
-                  alt="Perfume"
+                  alt={item.scent}
                   className={"2xl:w-[150px] cursor-pointer 2xl:h-[231.65px] lg:w-[120px] lg:h-[180px] w-[100px] h-[150px]"}
                 />
                 </Link>

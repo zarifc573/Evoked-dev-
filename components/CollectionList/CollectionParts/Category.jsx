@@ -72,7 +72,6 @@ const Category = ({ category, handleAddToSet, handleIncrement, handleDecrement }
                         gender: item.gender,
                         price: item.price,
                         link: item.link,
-                        name: item.name,
                         scent: item.scent,
                         smell: item.smell,
                         ingredients: item.ingredients,
@@ -83,8 +82,9 @@ const Category = ({ category, handleAddToSet, handleIncrement, handleDecrement }
                     key={item.id}
 >
             <Image
+            priority 
               src={item.link}
-              alt={item.name}
+              alt={item.scent}
               className={
                 "2xl:w-[150px] cursor-pointer 2xl:h-[231.65px] lg:w-[120px] lg:h-[180px] w-[100px] h-[150px]"
               }

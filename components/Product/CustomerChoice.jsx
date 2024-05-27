@@ -32,7 +32,7 @@ const CustomerChoice = () => {
             <div className="flex items-center w-full lg:justify-normal justify-between gap-5">
                 <div className={`lg:text-xl text-[24px] font-bold uppercase ${isDarkMode ? 'text-white' : 'text-zinc-800'}`}>{scent}</div>
                 <select className="px-2.5 py-1 rounded border border-gray-700 outline-none flex items-center gap-2">
-                    <option className="text-gray-700 text-base font-normal">100ml</option>
+                    <option selected className="text-gray-700 text-base font-normal">100ml</option>
                     <option disabled className="text-gray-400 text-base font-normal">50ml</option>
                 </select>
             </div>

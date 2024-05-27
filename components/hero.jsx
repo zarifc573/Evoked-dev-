@@ -10,10 +10,10 @@ import Link from 'next/link';
 const Hero = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   let Lists = [
-    { name: "Smell delicious, get compliments with iconic designer-like scents at wallet-friendly prices" },
-    { name: "Eau De Parfum, Lasts 24h on average (2-3x longer than typical designer scents)" },
-    { name: "Vegan-Friendly, Suitable for all skin types, Hand-mixed in small batches" },
-    { name: "Try 100% risk-free first, then decide with our 30-day money back promise" },
+    { id:1, name: "Smell delicious, get compliments with iconic designer-like scents at wallet-friendly prices" },
+    { id:2, name: "Eau De Parfum, Lasts 24h on average (2-3x longer than typical designer scents)" },
+    { id:3, name: "Vegan-Friendly, Suitable for all skin types, Hand-mixed in small batches" },
+    { id:4, name: "Try 100% risk-free first, then decide with our 30-day money back promise" },
   ];
   
   return (
@@ -31,7 +31,7 @@ const Hero = () => {
           <div className={`inline-flex cursor-auto flex-col items-start gap-5 p-5 rounded-md border  border-solid lg:mt-[30px] 2xl:mt-[40px] ${isDarkMode ? 'border-[#fff] duration-300' : 'border-[color:var(--Brand,#28282A)] duration-300'} `}>
       
               {Lists.map((list) => (
-                 <div className="flex items-center gap-2.5">
+                 <div key={list.id} className="flex items-center gap-2.5">
                   <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                  <span key={list.name} className={` lg:text-[16px] 2xl:text-lg text-[12px] text-start not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>{list.name}</span>
                  </div>
@@ -72,7 +72,7 @@ const Hero = () => {
           <div className={`w-[90%] mt-[30px] flex flex-col justify-center mx-auto  ${isDarkMode ? 'bg-[#171717] duration-300' : 'bg-[#F4F4F4] duration-300'}`}>
           <div className={`inline-flex cursor-auto flex-col justify-center items-start gap-5 p-5 rounded-md border  border-solid ${isDarkMode ? 'border-[#fff] duration-300' : 'border-[color:var(--Brand,#28282A)] duration-300'} `}>
               {Lists.map((list) => (
-                 <div className="flex items-center gap-2.5">
+                 <div key={list.id} className="flex items-center gap-2.5">
                  {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                   <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                  <span key={list.name} className={` md:text-[16px] text-[12px] text-start not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>{list.name}</span>

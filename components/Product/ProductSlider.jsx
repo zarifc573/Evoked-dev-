@@ -45,8 +45,7 @@ const ProductSlider = () => {
         { id: '4', link: brown, scent: 'Tom Ford', gender:gender },
         { id: '3', link: blue, scent: 'Flowerbomb', gender:gender },
     ];
-    console.log(productData);
-    console.log(searchParams.get('link'))
+ 
     return (
         <>
         <div className='lg:pb-[50px] cursor-pointer lg:pt-0 pt-[30px] pb-[30px]'>
@@ -73,7 +72,7 @@ const ProductSlider = () => {
                           <div className={` px-2.5 py-[5px] absolute 2xl:top-[20px] top-[10px] left-[20px] rounded border  justify-center items-center gap-2.5 inline-flex ${isDarkMode ? "border-white" : "border-neutral-900 "}`}>
               <p className={`uppercase text-sm font-normal ${isDarkMode ? "text-white" : "text-zinc-800 "}`}>{item.gender}</p>
             </div>
-                        <Image className='2xl:w-[400px] 2xl:h-[300px] lg:w-[300px] lg:h-[200px] w-[220px] h-[120px] object-contain' src={item.link} alt='Product' />
+                        <Image priority  className='2xl:w-[400px] 2xl:h-[300px] lg:w-[300px] lg:h-[200px] w-[220px] h-[120px] object-contain' src={item.link} alt='Product' />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -88,7 +87,7 @@ const ProductSlider = () => {
             >
                 {Data.map((item, index) => (
                     <SwiperSlide className='border border-solid border-gray-500 py-[10px] lg:rounded-[8px] rounded-[4px]' key={item.id}>
-                        <Image className='2xl:w-[100px] 2xl:h-[100px] lg:w-[70px] lg:h-[70px] w-[90px] h-[45px] object-contain mx-auto' src={item.link} alt='Product' />
+                        <Image priority  className='2xl:w-[100px] 2xl:h-[100px] lg:w-[70px] lg:h-[70px] w-[90px] h-[45px] object-contain mx-auto' src={item.link} alt='Product' />
                     </SwiperSlide>
                 ))}
             </Swiper>

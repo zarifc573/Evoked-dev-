@@ -15,11 +15,11 @@ import Image from 'next/image';
 const ReviewSlider = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     const Links = [
-      {link:video , link2:  videoDark},
-      {link:video , link2:  videoDark},
-      {link:video , link2:  videoDark},
-      {link:video , link2:  videoDark},
-      {link:video , link2:  videoDark},
+      {link:video , link2:  videoDark, id: 1},
+      {link:video , link2:  videoDark, id: 2},
+      {link:video , link2:  videoDark, id: 3},
+      {link:video , link2:  videoDark, id: 4},
+      {link:video , link2:  videoDark, id: 5},
       
   ]
     return (
@@ -68,9 +68,9 @@ const ReviewSlider = () => {
           }}
         >
             {Links.map((item) => (
-                isDarkMode ? <SwiperSlide  key={item.link2}><div ><Image className='lg:h-auto h-[208px]' src={item.link2} alt='Image'/></div></SwiperSlide>
+                isDarkMode ? <SwiperSlide  key={item.id}><div ><Image className='lg:h-auto h-[208px]' src={item.link2} alt='Image'/></div></SwiperSlide>
                     :
-                <SwiperSlide key={item.link}><div><Image src={item.link} alt='Image'/></div></SwiperSlide>
+                <SwiperSlide key={item.id}><div><Image src={item.link} alt='Image'/></div></SwiperSlide>
             ))
             }
         

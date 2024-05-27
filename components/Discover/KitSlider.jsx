@@ -13,11 +13,11 @@ const KitSlider = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     const [firstSwiper, setFirstSwiper] = useState(null);
     const Links = [
-      {link:'Men' , link2:  'Women', link3: 'Unisex'},
-      {link:'Men' , link2:  'Women', link3: 'Unisex'},
-      {link:'Men' , link2:  'Women', link3: 'Unisex'},
-      {link:'Men' , link2:  'Women', link3: 'Unisex'},
-      {link:'Men' , link2:  'Women', link3: 'Unisex'},
+      {link:'Men' , link2:  'Women', link3: 'Unisex', id: 1},
+      {link:'Men' , link2:  'Women', link3: 'Unisex', id: 2},
+      {link:'Men' , link2:  'Women', link3: 'Unisex', id: 3},
+      {link:'Men' , link2:  'Women', link3: 'Unisex', id: 4},
+      {link:'Men' , link2:  'Women', link3: 'Unisex', id: 5},
       
   ]
   const [selectedButton, setSelectedButton] = useState(1);
@@ -97,7 +97,7 @@ const KitSlider = () => {
                       }}
                     >
                         {Links.map((item) => (
-                            <SwiperSlide key={item.link2}>
+                            <SwiperSlide key={item.id}>
                                     <div  className={`2xl:w-[273px] w-full h-[200px] rounded-[4px] ${isDarkMode ? 'bg-[#D9D9D9]' : 'bg-[#D9D9D9]'}`}>
                                         {
                                             selectedButton === 1 && item.link || selectedButton === 2 && item.link2 || selectedButton === 3 && item.link3

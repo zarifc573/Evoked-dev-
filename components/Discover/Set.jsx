@@ -16,11 +16,11 @@ const Set = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
     const [firstSwiper, setFirstSwiper] = useState(null);
     const Links = [
-      {link:kit },
-      {link:'Men' },
-      {link:'Men' },
-      {link:'Men' },
-      {link:'Men' },
+      {link:kit,id:1 },
+      {link:'Men',id:2 },
+      {link:'Men',id:3 },
+      {link:'Men',id:4 },
+      {link:'Men',id:5 },
       
   ]
 
@@ -71,7 +71,7 @@ const Set = () => {
                       }}
                     >
                         {Links.map((item) => (
-                            <SwiperSlide key={item.link}>
+                            <SwiperSlide key={item.id}>
                                     <div  className={`xl:w-full w-full h-[400px] lg:h-[550px] 2xl:h-[810px] rounded-[4px] ${isDarkMode ? 'bg-[#D9D9D9]' : 'bg-[#D9D9D9]'}`}>
                                      
                                     </div>

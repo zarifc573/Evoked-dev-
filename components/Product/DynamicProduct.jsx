@@ -12,7 +12,7 @@ import BundleBoxForProduct from './BundleBoxForProduct';
 import { useGlobal } from '@/utils/GlobalContext';
 
 const DynamicProduct = () => {
-    const { isDarkMode, toggleDarkMode } = useDarkMode();
+    const { isDarkMode } = useDarkMode();
     const searchParams = useSearchParams();
     const [productData, setProductData] = useState(null);
     const {  setButtonStates, setQuantities, clicked, setClicked, button } = useGlobal();
