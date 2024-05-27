@@ -2,8 +2,6 @@
 import { useDarkMode } from "@/utils/DarkModeContext";
 import { Checked } from "@/utils/Helpers";
 
-
-
 const ToggleButton = ({ handleClick, selected, text }) => {
     const { isDarkMode } = useDarkMode();
     return (

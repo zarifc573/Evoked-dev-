@@ -3,7 +3,6 @@ import { useDarkMode } from '@/utils/DarkModeContext';
 import { Love } from '@/utils/Love';
 import Star from '@/utils/Star';
 import React from 'react'
-import "slick-carousel/slick/slick.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -69,9 +68,9 @@ const ReviewSlider = () => {
           }}
         >
             {Links.map((item) => (
-                isDarkMode ? <SwiperSlide  key={item.link2}><div ><Image className='lg:h-auto h-[208px]' src={item.link2}/></div></SwiperSlide>
+                isDarkMode ? <SwiperSlide  key={item.link2}><div ><Image className='lg:h-auto h-[208px]' src={item.link2} alt='Image'/></div></SwiperSlide>
                     :
-                <SwiperSlide key={item.link}><div><Image src={item.link}/></div></SwiperSlide>
+                <SwiperSlide key={item.link}><div><Image src={item.link} alt='Image'/></div></SwiperSlide>
             ))
             }
         

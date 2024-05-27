@@ -19,10 +19,7 @@ const Review = () => {
         {link:'video' , link2:  'videoDark'},
         {link:'video' , link2:  'videoDark'},
         {link:'video' , link2:  'videoDark'},
-        
   ]
-
-
   return (
     <section className={`${isDarkMode ? 'bg-primary' : 'bg-white'}`} >
       <div className={`lg:pt-[100px] pt-[70px] `}>

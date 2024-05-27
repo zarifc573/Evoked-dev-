@@ -10,9 +10,9 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import { Navigation, Controller  } from 'swiper/modules';
 import { Links } from "../../utils/data";
-import { useGlobal } from "../../utils/globalContext";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Link from "next/link";
+import { useGlobal } from "@/utils/GlobalContext";
 const BestSellerSlider = ({handleAddToSet, handleIncrement, handleDecrement}) => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const { buttonStates, setButtonStates, quantities, setQuantities, clicked, setClicked } = useGlobal();

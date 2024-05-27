@@ -1,5 +1,4 @@
 "use client"
-// DarkModeContext.js
 import React, { createContext, useContext, useState } from 'react';
 import { Links } from './data';
 

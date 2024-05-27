@@ -26,18 +26,14 @@ const AccordionItem = ({open, toggle, title, desc}) => {
           <div className={`h-[1px] text-start bg-[rgba(168,168,175,0.7)] transition-height duration-500 ${open ? ' mt-[10px]' : 'opacity-0 '}`}></div>
         )}
         
-       
-      
       </div>
       <Collapse isOpened={open}>
         <div className={`mt-[15px] text-start lg:w-full 2xl:text-[22px] lg:text-[16px] text-[12px] not-italic font-light leading-7 fontFeature ${isDarkMode ? 'text-[#FFFFFFB2]' : 'text-[color:var(--brand-70,rgba(40,40,42,0.70))]'}`}>{desc}</div>
       </Collapse>
 
-
     </button>
   )
 }
-
 
 const ProductAccordion = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();

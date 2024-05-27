@@ -257,10 +257,8 @@ const ProductSlider = () => {
                 {
                   index === currentIndex ?  <div className="swiper-button-prev1 absolute top-[40%] md:left-[-2%] left-[5%] lg:left-[-25%] cursor-pointer z-[999]">
                   <Prev className={`lg:h-auto lg:w-auto h-[60px] w-[50px]`} color={isDarkMode ? 'white' : '#28282A'}/>
-                  {/* <Image src={prev} alt="Arrow"/> */}
                 </div> : <div className="swiper-button-prev1 opacity-0 absolute top-[40%] md:left-[-2%] left-[5%] lg:left-[-25%] cursor-pointer z-[999]">
   <Prev color={isDarkMode ? 'white' : '#28282A'}/>
-  {/* <Image src={prev} alt="Arrow"/> */}
 </div>
                 }
                 {

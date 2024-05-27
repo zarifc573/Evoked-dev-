@@ -1,7 +1,6 @@
 'use client'
 import { useDarkMode } from '@/utils/DarkModeContext';
 import React, { useState } from 'react'
-import "slick-carousel/slick/slick.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -11,8 +10,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '@/app/globals.css'
 import kit from '@/public/assets/kit.png'
-import videoDark from '@/public/assets/dark-video.png'
-import Image from 'next/image';
 import CheckMart from '@/utils/CheckMart';
 import { Car, PerfumeSpray, Piggy, Select, Unselect } from '@/utils/Helpers';
 const Set = () => {
@@ -100,17 +97,14 @@ const Set = () => {
           
            
                  <div className="flex items-start 2xl:mx-0 lg:mx-auto gap-2.5 lg:w-auto w-[100%]">
-                 {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                   <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                  <span className={` lg:text-[16px] 2xl:text-lg text-[12px] text-start not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>12 x 5ml perfumes - all are men, women or unisex designer-inspired best-sellers</span>
                  </div>
                  <div className="flex items-start gap-2.5 2xl:mx-0 lg:mx-auto lg:w-auto w-[100%]">
-                 {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                   <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                  <span className={` lg:text-[16px] 2xl:text-lg text-[12px] text-start not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Includes a <strong>free £30 store credit</strong>, redeemable towards future purchases</span>
                  </div>
                  <div className="flex items-start gap-2.5 2xl:mx-0 lg:mx-auto lg:w-auto w-[100%]">
-                 {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                   <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                  <span className={` lg:text-[16px] 2xl:text-lg text-[12px] text-start not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Features notes of vanilla, sandalwood, jasmine, spices, citrus & more</span>
                  </div>

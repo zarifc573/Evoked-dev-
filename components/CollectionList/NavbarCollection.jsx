@@ -14,8 +14,6 @@ const NavbarCollection = () => {
         </Link>
         <div className="flex items-center gap-x-[30px]">
            
-          
-           
         </div>
     </div>
 </nav>

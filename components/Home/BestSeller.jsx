@@ -2,11 +2,12 @@
 import { useDarkMode } from '@/utils/DarkModeContext';
 import { Remove, TopBottomArrow } from '@/utils/Helpers';
 import { Links } from '@/utils/data';
-import { useGlobal } from '@/utils/globalContext';
+// import { useGlobal } from '@/utils/globalContext';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import BestSellerSlider from './BestSellerSlider';
 import Link from 'next/link';
+import { useGlobal } from '@/utils/GlobalContext';
 
 const BestSeller = () => {
     const { isDarkMode, toggleDarkMode } = useDarkMode();

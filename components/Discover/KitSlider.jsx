@@ -1,7 +1,6 @@
 'use client'
 import { useDarkMode } from '@/utils/DarkModeContext';
 import React, { useState } from 'react'
-import "slick-carousel/slick/slick.css";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles

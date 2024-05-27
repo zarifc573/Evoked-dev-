@@ -142,7 +142,7 @@ setButtonStates(prevStates => {
                 Search by perfume
               </p>
               <div className="lg:w-[464px] relative lg:mt-[20px] border-b border-solid border-white justify-between gap-2.5 items-center inline-flex">
-                <Image src={searchIcon} alt="Icon" className="w-[9%]" />
+                <Image src={searchIcon} alt="Search-icon" className="w-[9%]" />
                 <input
                   type="text"
                   className="w-[86%] outline-none bg-transparent text-white text-[24px]"
@@ -169,7 +169,7 @@ setButtonStates(prevStates => {
                     ))}
                   </div>
                 )}
-                <Image src={ArrowSearch} alt="Arrow" className="w-[9%]" />
+                <Image src={ArrowSearch} alt="Explore-arrow" className="w-[9%]" />
               </div>
             </div>
           </div>

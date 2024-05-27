@@ -1,7 +1,7 @@
 import { useDarkMode } from "@/utils/DarkModeContext";
 import { Remove } from "@/utils/Helpers";
 import Image from "next/image";
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState } from "react";
 import '@/app/globals.css'
 import { usePricing } from "@/utils/PricingContext";
 import CheckMart from "@/utils/CheckMart";
@@ -56,12 +56,10 @@ const forFifty = selectedOptions[data.indexOf(selectedPlanData)].includes('50ml'
               <h3 className={`2xl:text-[32px] lg:text-[28px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>Your Evoked Scents </h3>
               <h4 className={`mt-[10px] 2xl:text-xl lg:text-[18px] not-italic font-normal leading-[120%] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'}`}>build your set by adding 3</h4>
               <div className="flex items-center gap-2.5 mt-[20px]">
-                {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                 <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                 <span className={`2xl:text-lg lg:text-[12px] not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Free 2-5d shipping & no questions asked returns</span>
               </div>
               <div className="flex items-center gap-2.5 mt-[10px]">
-                {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                 <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                 <span className={`2xl:text-lg lg:text-[12px] not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Try first, then decide with 30d money-back promise <span className={`text-sm not-italic font-light leading-[120%] underline  cursor-pointer ${isDarkMode ? 'text-[#FFFFFFCC]' : 'text-[rgba(40,40,42,0.80)] '}`}>learn more.</span></span>
               </div>
@@ -119,12 +117,10 @@ const forFifty = selectedOptions[data.indexOf(selectedPlanData)].includes('50ml'
               </button>
               <div className=" lg:hidden md:block hidden">
               <div className="flex items-center gap-2.5 mt-[20px]">
-                {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                 <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                 <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Free 2-5d shipping & no questions asked returns</span>
               </div>
               <div className="flex items-center gap-2.5 mt-[10px]">
-                {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                 <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                 <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Try first, then decide with 30d money-back promise <span className={`text-[10px] lg:text-sm not-italic font-light leading-[120%] underline  cursor-pointer ${isDarkMode ? 'text-[#FFFFFFCC]' : 'text-[rgba(40,40,42,0.80)] '}`}>learn more.</span></span>
               </div>
@@ -134,12 +130,10 @@ const forFifty = selectedOptions[data.indexOf(selectedPlanData)].includes('50ml'
             {/* Mobile-device */}
             <div className="lg:w-[35%] md:hidden block">
               <div className="flex items-center gap-2.5 mt-[20px]">
-                {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                 <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                 <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Free 2-5d shipping & no questions asked returns</span>
               </div>
               <div className="flex items-center gap-2.5 mt-[10px]">
-                {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                 <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                 <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Try first, then decide with 30d money-back promise <span className={`text-[10px] lg:text-sm not-italic font-light leading-[120%] underline  cursor-pointer ${isDarkMode ? 'text-[#FFFFFFCC]' : 'text-[rgba(40,40,42,0.80)] '}`}>learn more.</span></span>
               </div>

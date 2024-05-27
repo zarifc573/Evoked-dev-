@@ -13,7 +13,7 @@ const MainPreSelling = () => {
       <nav className='w-full lg:py-[40px] py-[20px] bg-primary lg:border-b-2 lg:border-b-white lg:border-solid lg:static absolute top-0 left-0 z-10 '>
           <div className="lg:max-w-container w-[90%] mx-auto flex justify-center items-center">
               <div className="">
-                  <Image className='lg:w-auto lg:h-auto w-[122px] h-[22px]' src={logo} />
+                  <Image className='lg:w-auto lg:h-auto w-[122px] h-[22px]' src={logo} alt='Logo'/>
               </div>
            
           </div>

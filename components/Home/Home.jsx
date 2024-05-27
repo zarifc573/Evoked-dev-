@@ -1,3 +1,4 @@
+
 import { DarkModeProvider } from '@/utils/DarkModeContext'
 import React from 'react'
 import FooterDiscovery from '../Discover/FooterDiscovery'
@@ -9,7 +10,7 @@ import Navbar from './Navbar'
 import Hero from './Hero'
 import Mission from './Mission'
 import BestSeller from './BestSeller'
-import { GlobalProvider } from '@/utils/globalContext'
+import { GlobalProvider } from '@/utils/GlobalContext'
 
 const HomePage = () => {
   return (

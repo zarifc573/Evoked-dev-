@@ -21,7 +21,7 @@ const Story = () => {
                       {/* Button */}
                       <button className={`2xl:mt-[50px] mt-[15px] md:mt-[30px] flex items-center gap-2.5 lg:px-[30px] lg:py-[18px] px-[20px] py-[12px] rounded-[var(--md,8px)] border  border-solid  ${isDarkMode ? 'border-[#28282A] bg-white shadow-[4px_4px_0px_0px_#fff]' : 'border-white bg-[#171717] shadow-[4px_4px_0px_0px_#171717]'}`}>
             <span className={`text-[16px] lg:text-[22px] not-italic font-semibold leading-[normal] ${isDarkMode ? 'text-[#171717]' : 'text-white'}`}>Build Your Evoked Set</span>
-            {/* <Image src={arrow} alt="Arrow Right" /> */}
+         
             <ArrowRight color={ isDarkMode ? '#171717' : 'white'} />
           </button>
                   </div>

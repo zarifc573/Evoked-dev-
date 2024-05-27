@@ -52,12 +52,10 @@ const OneTimePurchaseBundleBox = () => {
                 <h3 className={` ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} 2xl:text-[32px] lg:text-[28px] not-italic font-normal leading-[120%]`}>Your Evoked Scents </h3>
                 <h4 className={`${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} mt-[10px] 2xl:text-xl lg:text-[18px] not-italic font-normal leading-[120%]`}>{shipping}</h4>
                 <div className="flex items-center gap-2.5 mt-[20px]">
-                   {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                     <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                    <span className={`2xl:text-lg lg:text-[12px] not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Free 2-5d shipping & no questions asked returns</span>
                    </div>
                 <div className="flex items-center gap-2.5 mt-[10px]">
-                   {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                     <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                    <span className={`2xl:text-lg lg:text-[12px] not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Try first, then decide with 30d money-back promise <span className={` ${isDarkMode ? 'text-[#28282ACC]' : 'text-[rgba(40,40,42,0.80)]'} 2xl:text-sm lg:text-[12px] not-italic font-light leading-[120%] border-b border-b-[rgba(40,40,42,0.45)]   cursor-pointer`}>learn more.</span></span>
                    </div>
@@ -140,12 +138,10 @@ const OneTimePurchaseBundleBox = () => {
                 <div className="lg:hidden md:block hidden">
                 <h4 className={`${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} lg:mt-[10px] mt-[30px] text-[14px] lg:text-xl not-italic font-normal leading-[120%]`}>{shipping}</h4>
                 <div className="flex items-center gap-2.5 mt-[20px]">
-                   {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                     <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                    <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Free 2-5d shipping & no questions asked returns</span>
                    </div>
                 <div className="flex items-center gap-2.5 mt-[10px]">
-                   {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                     <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                    <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Try first, then decide with 30d money-back promise <span className={` ${isDarkMode ? 'text-[#28282ACC]' : 'text-[rgba(40,40,42,0.80)]'} text-[10px] lg:text-sm not-italic font-light leading-[120%] border-b border-b-[rgba(40,40,42,0.45)] underline  cursor-pointer`}>learn more.</span></span>
                    </div>
@@ -157,12 +153,10 @@ const OneTimePurchaseBundleBox = () => {
               <div className="lg:w-[35%] md:hidden lg:hidden ">
                 <h4 className={`${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} lg:mt-[10px] mt-[30px] text-[14px] lg:text-xl not-italic font-normal leading-[120%] lg:block hidden`}>{shipping}</h4>
                 <div className="flex items-center gap-2.5 mt-[20px]">
-                   {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                     <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                    <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Free 2-5d shipping & no questions asked returns</span>
                    </div>
                 <div className="flex items-center gap-2.5 mt-[10px]">
-                   {/* <Image src={checkmart} alt="Checkmark Icon" /> */}
                     <CheckMart color={isDarkMode ? 'white' : '#28282A'} />
                    <span className={`text-[10px] lg:text-lg not-italic font-normal leading-[normal] ${isDarkMode ? 'text-white' : 'text-[color:var(--Brand,#28282A)]'} `}>Try first, then decide with 30d money-back promise <span className={` ${isDarkMode ? 'text-[#28282ACC]' : 'text-[rgba(40,40,42,0.80)]'} text-[10px] lg:text-sm not-italic font-light leading-[120%] border-b border-b-[rgba(40,40,42,0.45)] underline  cursor-pointer`}>learn more.</span></span>
                    </div>

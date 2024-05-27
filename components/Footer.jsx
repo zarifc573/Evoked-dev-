@@ -27,7 +27,7 @@ const Footer = () => {
           
             <button className='lg:block hidden' onClick={toggleDarkMode}>
                       <div className={`border border-solid ${isDarkMode ? 'w-[100px] border-white transition duration-300 h-10 shrink-0 rounded-[106.623px] bg-[#454547] py-[5px] px-[10px] flex items-center justify-between relative' : 'border-primary w-[100px] h-10 shrink-0 rounded-[106.623px] bg-[#f4f4f4] transition duration-500 py-[5px] px-[10px] flex items-center justify-between relative'}`} >
-                           {isDarkMode ?  <Image className='absolute transition duration-300 top-[50%] translate-y-[-50%] right-[10px]' src={light}/> : <Image className='absolute top-[50%] transition duration-500 translate-y-[-50%] left-[10px]' src={dark}/>}
+                           {isDarkMode ?  <Image className='absolute transition duration-300 top-[50%] translate-y-[-50%] right-[10px]' src={light} alt='Image'/> : <Image className='absolute top-[50%] transition duration-500 translate-y-[-50%] left-[10px]' src={dark} alt='Image'/>}
        
         
       </div>
@@ -37,7 +37,7 @@ const Footer = () => {
             </span>
             <button className='lg:hidden block lg:my-0 py-[15px]' onClick={toggleDarkMode}>
                       <div className={isDarkMode ? 'lg:w-[100px] w-[60px] border border-solid border-white transition duration-300 lg:h-10 h-[30px] shrink-0 bg-[#454547] lg:rounded-[106.623px] rounded-[40px] py-[3px] lg:py-[5px] px-[10px] flex items-center justify-between relative' : 'lg:w-[100px] w-[60px] border border-solid border-primary lg:h-10 h-[30px] shrink-0 lg:rounded-[106.623px] rounded-[40px] py-[3px] lg:py-[5px] bg-[#f4f4f4] transition duration-500 px-[10px] flex items-center justify-between relative'} >
-                           {isDarkMode ?  <Image className='absolute transition duration-300 top-[50%] translate-y-[-50%] right-[5px] lg:h-auto lg:w-auto w-[20px] h-[20px]' src={light}/> : <Image className='absolute transition duration-300 top-[50%] translate-y-[-50%] left-[5px] lg:h-auto lg:w-auto w-[20px] h-[20px]' src={dark}/>}
+                           {isDarkMode ?  <Image className='absolute transition duration-300 top-[50%] translate-y-[-50%] right-[5px] lg:h-auto lg:w-auto w-[20px] h-[20px]' src={light} alt='Image'/> : <Image className='absolute transition duration-300 top-[50%] translate-y-[-50%] left-[5px] lg:h-auto lg:w-auto w-[20px] h-[20px]' src={dark} alt='Image'/>}
        
         
       </div>
